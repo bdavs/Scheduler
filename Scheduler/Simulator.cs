@@ -5,7 +5,7 @@ namespace Scheduler
 	public class Simulator
 	{
 		static String fileName = "processList.dat";
-		static boolean debug = true;
+		static bool debug = true;
 		public Simulator()
 		{
 			try {
