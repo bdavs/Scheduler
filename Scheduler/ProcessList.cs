@@ -6,7 +6,7 @@ namespace Scheduler
 {
 	public class ProcessList
 	{
-			private Process[] processes;
+			public Process[] processes;
 			private int quantum;
 
 			private ProcessList(){}
