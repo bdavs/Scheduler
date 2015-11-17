@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 /home/bobby/Scheduler/Scheduler/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
 /home/bobby/Scheduler/Scheduler/bin/Debug/Scheduler.exe.mdb
 /home/bobby/Scheduler/Scheduler/bin/Debug/Scheduler.exe
 /home/bobby/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe
 /home/bobby/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe.mdb
+=======
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/dan/Scheduler/Scheduler/bin/Debug/Scheduler.exe.mdb
+/home/dan/Scheduler/Scheduler/bin/Debug/Scheduler.exe
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe.mdb
+>>>>>>> caa13b28706815d47c566dafe62088a8160a3f81

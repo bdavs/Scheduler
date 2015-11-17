@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Properties GitUserInfo="UsingGIT" StartupItem="Scheduler/Scheduler.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Scheduler/Scheduler.cs">
@@ -15,3 +16,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
+=======
+﻿<Properties GitUserInfo="UsingGIT" />
+>>>>>>> caa13b28706815d47c566dafe62088a8160a3f81
