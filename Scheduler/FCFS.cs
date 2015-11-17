@@ -26,14 +26,6 @@ namespace Scheduler
 				if (time % snapshot == 0)
 					this.snapshot ();
 
-				//Put everything we can into queue first
-				foreach (Process myprocess in FCFSprocessList) {
-					if (myprocess.getPID() == time) {
-						Ready_Queue.Enqueue(myprocess);
-						FCFSprocessList.Remove (myprocess);
-					}
-				}
-
 				//Get the running job 
 				if (RunningJob.getPID () == -1) {
 					//Were on the fist iteration
