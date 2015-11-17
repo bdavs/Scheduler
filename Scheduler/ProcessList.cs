@@ -1,19 +1,9 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Scheduler
 {
-	public class Job
-	{
-		public int pid;
-		public int cpu_burst;
-		public int io_burst;
-		public Job ()
-		{
-			pid = 0;
-			cpu_burst = 0;
-			io_burst = 0;
-		}
-	}
 	public class ProcessList
 	{
 			private Process[] processes;
@@ -24,40 +14,42 @@ namespace Scheduler
 			public ProcessList(String filename) //throws FileNotFoundException
 			{
 				//Open file for reading
-				Scanner input = new Scanner(new File(filename));
-
+				//Scanner input = new Scanner(new File(filename));
+				StreamReader input = new StreamReader(filename);
+				//StreamWriter input = new StreamWriter(new File(filename));
 				//Read in Total_Processes
-				input.next();
+				input.ReadLine();
 
 				//read in "Total_Processes"
-				int processTotal = input.nextInt();
+				int processTotal = Int32.Parse(input.ReadLine());
 
 				//Advance to the next line
-				input.nextLine();
+				input.ReadLine();
 
 				//Read in "Quantum"
-				input.next();
+				input.ReadLine();
 
 				//read in quantum
-				quantum = input.nextInt();
+				quantum = Int32.Parse(input.ReadLine());
 
 				//Advance to the next line
-				input.nextLine();
+				input.ReadLine();
 
 				//Advance to the next line to skip past headers %Pid CPU Burst etc
-				input.nextLine();
+				input.ReadLine();
 
 				//Allocate processes
 				processes = new Process[processTotal];
-
+				String regex_pattern = @"([0-9])+\s([0-9])+\s([0-9])+\s([0-9])+\s([0-9])+";
 				//Read in each process information
 				for(int loop = 0; loop<processTotal;loop++)
 				{
-					int pid = input.nextInt();
-					int CPU_burst = input.nextInt();
-					int IO_burst = input.nextInt(); 
-					int priority = input.nextInt();
-					int period = input.nextInt();
+				Match line = Regex.Match(input.ReadLine(),regex_pattern);;
+				int pid = Int32.Parse(line.Groups[1].Value);
+				int CPU_burst = Int32.Parse(line.Groups[2].Value);
+				int IO_burst = Int32.Parse(line.Groups[3].Value);
+				int priority = Int32.Parse(line.Groups[4].Value);
+				int period = Int32.Parse(line.Groups[5].Value);
 
 					processes[loop] = new Process(pid,CPU_burst,IO_burst,priority,period);
 				}
@@ -72,7 +64,7 @@ namespace Scheduler
 			public Process getProcess(int index)
 			{
 				//returns requested process if it exists, null otherwise
-				if(index<processes.length && index>=0)
+				if(true)//index<processes.length && index>=0)
 				{
 					return processes[index];
 				}
@@ -82,7 +74,7 @@ namespace Scheduler
 			public int getNumberOfProcesses()
 			{
 				//returns the total number of processes
-				return processes.length;
+			return 1;//processes;//.length;
 			}
 
 			public ProcessList clone()
@@ -90,9 +82,9 @@ namespace Scheduler
 				//Make an identical copy of the Processes in ProcessList
 
 				ProcessList pl = new ProcessList();
-				pl.processes = new Process[processes.length];
+			pl.processes = new Process[1];//.length];
 				pl.quantum = this.quantum;
-				for(int loop = 0; loop < processes.length; loop++)
+				for(int loop = 0; loop < 1; loop++)
 				{
 					pl.processes[loop] = processes[loop].clone();
 				}
