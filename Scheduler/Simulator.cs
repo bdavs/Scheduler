@@ -4,7 +4,7 @@ namespace Scheduler
 {
 	public class Simulator
 	{
-		static String fileName = "input_file.txt";
+		static String fileName = "../../input_file.txt";
 		static bool debug = true;
 		public Simulator()
 		{

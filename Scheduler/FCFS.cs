@@ -15,7 +15,7 @@ namespace Scheduler
 			Ready_Queue = new Queue<Process>(processList.processes);
 			IO_Queue = new Queue<Process>();
 			RunningJob = new Process (-1,0,0,0,0);
-			StreamReader output = new StreamReader ("output.txt");
+			StreamReader output = new StreamReader ("../../output.txt");
 			simulate(10,output);
 		}
 
