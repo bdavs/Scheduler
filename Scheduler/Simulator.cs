@@ -4,7 +4,7 @@ namespace Scheduler
 {
 	public class Simulator
 	{
-		static String fileName = "processList.dat";
+		static String fileName = "input_file.txt";
 		static bool debug = true;
 		public Simulator()
 		{
@@ -41,7 +41,7 @@ namespace Scheduler
 				}
 
 			} catch (Exception e) {
-				Console.WriteLine ("Error trying to populate the process list: ");
+				Console.WriteLine ("Error trying to populate the process list: " + e.Message);
 				Console.WriteLine ("Program quitting");
 			}
 		}

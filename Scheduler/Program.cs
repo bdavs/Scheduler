@@ -6,10 +6,11 @@ namespace Scheduler
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World! test");
-			//Job myjob = new Job ();
+			//Console.WriteLine ("Hello World! test");
+			Simulator test = new Simulator();
+
 			//myjob.cpu_burst = 1;
-			Console.WriteLine ("Thing");
+			//Console.WriteLine ("Thing");
 		}
 	}
 }

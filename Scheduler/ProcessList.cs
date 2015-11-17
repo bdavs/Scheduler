@@ -23,33 +23,31 @@ namespace Scheduler
 				//read in "Total_Processes"
 				int processTotal = Int32.Parse(input.ReadLine());
 
-				//Advance to the next line
-				input.ReadLine();
-
 				//Read in "Quantum"
 				input.ReadLine();
 
 				//read in quantum
 				quantum = Int32.Parse(input.ReadLine());
 
-				//Advance to the next line
-				input.ReadLine();
 
 				//Advance to the next line to skip past headers %Pid CPU Burst etc
-				input.ReadLine();
+			input.ReadLine();
 
 				//Allocate processes
 				processes = new Process[processTotal];
-				String regex_pattern = @"([0-9])+\s([0-9])+\s([0-9])+\s([0-9])+\s([0-9])+";
+			String regex_pattern = @"([0-9]+)\s+([0-9]+)\s+([0-9]+)\s+([0-9]+)\s*";
 				//Read in each process information
+				
 				for(int loop = 0; loop<processTotal;loop++)
 				{
+
 				Match line = Regex.Match(input.ReadLine(),regex_pattern);;
+				//Console.WriteLine ("looping "+line.Groups[1]);
 				int pid = Int32.Parse(line.Groups[1].Value);
 				int CPU_burst = Int32.Parse(line.Groups[2].Value);
 				int IO_burst = Int32.Parse(line.Groups[3].Value);
 				int priority = Int32.Parse(line.Groups[4].Value);
-				int period = Int32.Parse(line.Groups[5].Value);
+				int period = 1;//Int32.Parse(line.Groups[5].Value);
 
 					processes[loop] = new Process(pid,CPU_burst,IO_burst,priority,period);
 				}
@@ -64,7 +62,7 @@ namespace Scheduler
 			public Process getProcess(int index)
 			{
 				//returns requested process if it exists, null otherwise
-				if(true)//index<processes.length && index>=0)
+				if(index<processes.Length && index>=0)
 				{
 					return processes[index];
 				}
@@ -74,7 +72,7 @@ namespace Scheduler
 			public int getNumberOfProcesses()
 			{
 				//returns the total number of processes
-			return 1;//processes;//.length;
+			return processes.Length;
 			}
 
 			public ProcessList clone()
@@ -82,7 +80,7 @@ namespace Scheduler
 				//Make an identical copy of the Processes in ProcessList
 
 				ProcessList pl = new ProcessList();
-			pl.processes = new Process[1];//.length];
+			pl.processes = new Process[processes.Length];
 				pl.quantum = this.quantum;
 				for(int loop = 0; loop < 1; loop++)
 				{
