@@ -1,0 +1,5 @@
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/dan/Scheduler/Scheduler/bin/Debug/Scheduler.exe.mdb
+/home/dan/Scheduler/Scheduler/bin/Debug/Scheduler.exe
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe
+/home/dan/Scheduler/Scheduler/obj/x86/Debug/Scheduler.exe.mdb
