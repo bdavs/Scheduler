@@ -7,55 +7,92 @@ namespace Scheduler
 	public class FCFS  : Scheduler{
 		Queue<Process> Ready_Queue;
 		Queue<Process> IO_Queue;
-		List<Process> FCFSprocessList;
 		int time = 0;
 		Process RunningJob;
+		Process IO_Job;
 		public FCFS(ProcessList processList)
 		{
-			Ready_Queue = new Queue<Process>(processList.processes);
+			Ready_Queue = new Queue<Process>();
+			foreach (Process item in processList.processes) {
+				Ready_Queue.Enqueue (item);
+			}
 			IO_Queue = new Queue<Process>();
 			RunningJob = new Process (-1,0,0,0,0);
+			IO_Job = new Process (-1, 0, 0, 0,0);
 			StreamReader output = new StreamReader ("../../output.txt");
-			simulate(10,output);
+			simulate (1, output);
+			System.Console.WriteLine (Ready_Queue.Count);
 		}
 
 	
 		public override void simulate(int snapshot, StreamReader pa) {
-			while (FCFSprocessList.Count != 0 && Ready_Queue.Count != 0 && IO_Queue.Count != 0) {
-
-				if (time % snapshot == 0)
-					this.snapshot ();
+			Console.WriteLine ("**************************************FCFS STARTED**************************");
+			while ((Ready_Queue.Count != 0 || IO_Queue.Count != 0) || (RunningJob.getCPU_burst1 () > 0 || RunningJob.getCPU_burst2 () > 0)||(IO_Job.getIO_burst()>0)) {
 
 				//Get the running job 
 				if (RunningJob.getPID () == -1) {
-					//Were on the fist iteration
+					//OH GEEZ RICK, Were on the fist iteration
 					RunningJob = Ready_Queue.Dequeue ();
 				}
 
 				//RUNNING JOB LOGIC START
 				if (RunningJob.getCPU_burst1 () == 0) {
 					IO_Queue.Enqueue (RunningJob);
-					RunningJob = Ready_Queue.Dequeue ();
-				}else if (RunningJob.getCPU_burst1 () < 0) {
+					if (Ready_Queue.Count != 0)
+						RunningJob = Ready_Queue.Dequeue ();
+				} else if (RunningJob.getCPU_burst1 () < 0) {
 					if (RunningJob.getCPU_burst2 () != 0) {
 						RunningJob.decrementCPUBurst2 ();
 					} else {
-						RunningJob = Ready_Queue.Dequeue ();
+						if (Ready_Queue.Count != 0)
+							RunningJob = Ready_Queue.Dequeue ();
 					}
-				}else if (RunningJob.getCPU_burst1() > 0) {
+				} else if (RunningJob.getCPU_burst1 () > 0) {
 					RunningJob.decrementCPUBurst1 ();
 				}
 				//RUNNING JOB LOGIC END
 
 
 				//IO JOB LOGIC START
+				if (IO_Job.getPID () == -1) {
+					if (IO_Queue.Count != 0) {
+						IO_Job = IO_Queue.Dequeue ();
+					}
+				} else {
+					if (IO_Job.getIO_burst () <= 0) {
+						IO_Job.decrementCPUBurst1 ();
+						Ready_Queue.Enqueue (IO_Job);
+						if (IO_Queue.Count != 0) {
+							IO_Job = IO_Queue.Dequeue ();
+						} else {
+							IO_Job = new Process (-1, 0, 0, 0, 0);
+						}
 
-
+					} else {
+						IO_Job.decrementCPUBurst1 ();//Cuz FUCK U
+						IO_Job.decrementIO_burst ();
+					}
+				}
 				//IO JOB LOGIC END
+
+				//POKEMON SNAP
+				if (time % snapshot == 0) {
+					System.Console.WriteLine ("Taking Snap at time: " + time);
+					this.snapshot ();
+				}
+
 				time++;
 			}
-
+			finalReport (pa);
+			Console.WriteLine ("**************************************FCFS ENDED**************************");
 		}
+		
+
+
+		
+			
+
+
 
 
 		public override void finalReport(StreamReader pw) {
@@ -64,12 +101,39 @@ namespace Scheduler
 		}
 
 		void snapshot(){
-			foreach (Process item in Ready_Queue) {
-				System.Console.WriteLine (item.ToString());
+			Console.WriteLine ("==============================================");
+			if (Ready_Queue.Count == 0) {
+				Console.Write ("Ready Queue: NOTHING");
+			} else {
+				Console.Write ("Ready Queue: ");
+				foreach (Process item in Ready_Queue) {
+					System.Console.Write (item.getPID () + " ");
+				}
 			}
-			foreach (Process item in Ready_Queue) {
-				System.Console.WriteLine (item.ToString());
+			if (RunningJob.getCPU_burst1 () < 0) {
+				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst2 ());
+			} else {
+				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst1 ());
 			}
+			Console.Write ("IO Queue: ");
+			if (IO_Queue.Count == 0) {
+				Console.WriteLine ("NOTHING!");
+			} else {
+				foreach (Process item in IO_Queue) {
+					System.Console.Write (item.getPID () + " ");
+				}
+				Console.WriteLine ("");
+			}
+			if (IO_Job.getPID () == -1) {
+				Console.WriteLine ("IO Job: NO RUNNING JOB");
+			} else {
+				if (RunningJob.getCPU_burst1 () < 0) {
+					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ());
+				} else {
+					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ());
+				}
+			}
+			Console.WriteLine ("==============================================");
 		}
 	}
 }

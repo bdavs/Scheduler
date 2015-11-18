@@ -8,8 +8,8 @@ namespace Scheduler
 		private int CPU_burst2;
 		private int IO_burst;
 		private int priority;
-		private int period;
-		private int activePeriod;
+		public int period;
+		public int activePeriod;
 
 		private Process(){}
 
@@ -53,7 +53,7 @@ namespace Scheduler
 		public int getPID()
 		{
 			return pid;
-		}
+			}
 
 		public int getCPU_burst1()
 		{
