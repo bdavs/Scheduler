@@ -19,7 +19,7 @@ namespace Scheduler
 
 		public override void simulate(int snapshot, StreamReader pa) {
 			// TODO Auto-generated method stub
-			quantum	= RRprocessList.getQuantum();
+			//quantum	= RRprocessList.getQuantum();
 			foreach (Process process in RRprocessList.processes) {
 				ReadyQueue.Enqueue(process);
 				Console.WriteLine (process.getCPU_burst1 ());
@@ -36,7 +36,7 @@ namespace Scheduler
 					}
 				}	
 				Console.WriteLine ("PID: " + currentProcess.getPID ());
-				for (int i = 0; i < quantum; i++) {
+				for (int i = 0; i < 0; i++) {
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst() > 0) {

@@ -32,11 +32,11 @@ namespace Scheduler
 				{
 					int i = 0;
 					sim [i++] = new FCFS (p.clone ()); 
-<<<<<<< HEAD
+
 					sim [i++] = new RR (p.clone ()); 
-=======
+
 					//sim [i++] = new RR (p.clone ()); 
->>>>>>> 7724302bb2e035435f1f46437ce5917207bfe21f
+
 					/*sim [i++] = new SJF (p.clone ());
 					sim [i++] = new SJR (p.clone ());
 					sim [i++] = new Priority (p.clone ());
