@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Scheduler
 {
 	public class ProcessList
 	{
-			public Process[] processes;
+			public List<Process> processes;
 			private int quantum;
 
-			private ProcessList(){}
+			public ProcessList(){}
 
 			public ProcessList(String filename) //throws FileNotFoundException
 			{
@@ -34,7 +35,7 @@ namespace Scheduler
 			input.ReadLine();
 
 				//Allocate processes
-				processes = new Process[processTotal];
+			processes = new List<Process>();
 			String regex_pattern = @"([0-9]+)\s+([0-9]+)\s+([0-9]+)\s+([0-9]+)\s*";
 				//Read in each process information
 				
@@ -49,7 +50,7 @@ namespace Scheduler
 				int priority = Int32.Parse(line.Groups[4].Value);
 				int period = 1;//Int32.Parse(line.Groups[5].Value);
 
-					processes[loop] = new Process(pid,CPU_burst,IO_burst,priority,period);
+				processes.Add(new Process(pid,CPU_burst,IO_burst,priority,period));
 				}
 			}
 
@@ -62,7 +63,7 @@ namespace Scheduler
 			public Process getProcess(int index)
 			{
 				//returns requested process if it exists, null otherwise
-				if(index<processes.Length && index>=0)
+			if(index<processes.Count && index>=0)
 				{
 					return processes[index];
 				}
@@ -72,21 +73,15 @@ namespace Scheduler
 			public int getNumberOfProcesses()
 			{
 				//returns the total number of processes
-			return processes.Length;
+			return processes.Count;
 			}
 
 			public ProcessList clone()
 			{
 				//Make an identical copy of the Processes in ProcessList
 
-				ProcessList pl = new ProcessList();
-			pl.processes = new Process[processes.Length];
-				pl.quantum = this.quantum;
-				for(int loop = 0; loop < 1; loop++)
-				{
-					pl.processes[loop] = processes[loop].clone();
-				}
-
+			ProcessList pl = new ProcessList();
+				pl = this;
 				return pl;
 			}
 	}
