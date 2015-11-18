@@ -14,15 +14,11 @@ namespace Scheduler
 		{
 			Ready_Queue = new Queue<Process>();
 			foreach (Process item in processList.processes) {
-				System.Console.WriteLine (item.getPID());
 				Ready_Queue.Enqueue (item);
 			}
 			IO_Queue = new Queue<Process>();
 			RunningJob = new Process (-1,0,0,0,0);
-<<<<<<< HEAD
 			IO_Job = new Process (-1, 0, 0, 0,0);
-=======
->>>>>>> cc62c685ee459b177b9afae367cd5f2319d4eb7c
 			StreamReader output = new StreamReader ("../../output.txt");
 			simulate(10,output);
 			snapshot ();
