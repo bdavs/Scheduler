@@ -21,14 +21,22 @@ namespace Scheduler
 		public override void simulate(int snapshot, StreamReader pa) {
 			// TODO Auto-generated method stub
 			quantum	= RRprocessList.getQuantum();
+			foreach (Process process in RRprocessList.processes) {
+				ReadyQueue.Enqueue(process);
+				Console.WriteLine (process.getCPU_burst1 ());
+			}
 
-			ReadyQueue = new Queue<Process> (RRprocessList.processes);
-
-
-			Console.WriteLine (RRprocessList.getQuantum ());
-			while(ReadyQueue.Count>0){
+			//Console.WriteLine (RRprocessList.getQuantum ());
+			while (ReadyQueue.Count > 0) {
 				Process currentProcess = ReadyQueue.Dequeue ();
-				Process currentIO = IOQueue.Dequeue ();
+				Process currentIO = new Process(-1,-1,-1,-1,-1);
+				if (IOQueue.Count > 0) {
+					currentIO = IOQueue.Dequeue ();
+					if (currentIO.getIO_burst () > 0) {
+						IOQueue.Enqueue (currentIO);
+					}
+				}	
+				Console.WriteLine ("PID: " + currentProcess.getPID ());
 				for (int i = 0; i < quantum; i++) {
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
@@ -37,20 +45,21 @@ namespace Scheduler
 						break;
 					} else if (currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
-					} else {
-						Console.WriteLine ("error in quantum loop");
-						return;
-					}
-
+					} 
+					//Console.WriteLine ("i = " + i);
 					if (currentIO.getIO_burst ()> 0) {
 						currentIO.decrementIO_burst ();
-					} else {
+					} else if(currentIO.getIO_burst() == 0){
 						ReadyQueue.Enqueue (currentIO);
+						if (IOQueue.Count > 0) {
+							currentIO = IOQueue.Dequeue ();
+						} else {
+							currentIO = new Process (-1, -1, -1, -1, -1);
+						}
 					}
+
 				}
-				if (currentIO.getIO_burst () > 0) {
-					IOQueue.Enqueue (currentIO);
-				}
+
 				if (currentProcess.getCPU_burst1 () != 0 || currentProcess.getCPU_burst2 () != 0) {
 					ReadyQueue.Enqueue (currentProcess);
 				}
