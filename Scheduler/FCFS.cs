@@ -26,11 +26,12 @@ namespace Scheduler
 
 	
 		public override void simulate(int snapshot, StreamReader pa) {
-			while ((Ready_Queue.Count != 0 || IO_Queue.Count != 0) || (RunningJob.getCPU_burst1 () > 0 || RunningJob.getCPU_burst2 () > 0)) {
+			Console.WriteLine ("**************************************FCFS STARTED**************************");
+			while ((Ready_Queue.Count != 0 || IO_Queue.Count != 0) || (RunningJob.getCPU_burst1 () > 0 || RunningJob.getCPU_burst2 () > 0)||(IO_Job.getIO_burst()>0)) {
 
 				//Get the running job 
 				if (RunningJob.getPID () == -1) {
-					//Were on the fist iteration
+					//OH GEEZ RICK, Were on the fist iteration
 					RunningJob = Ready_Queue.Dequeue ();
 				}
 
@@ -74,15 +75,16 @@ namespace Scheduler
 				}
 				//IO JOB LOGIC END
 
+				//POKEMON SNAP
 				if (time % snapshot == 0) {
 					System.Console.WriteLine ("Taking Snap at time: " + time);
 					this.snapshot ();
 				}
 
 				time++;
-
-
 			}
+			finalReport (pa);
+			Console.WriteLine ("**************************************FCFS ENDED**************************");
 		}
 		
 
@@ -108,7 +110,11 @@ namespace Scheduler
 					System.Console.Write (item.getPID () + " ");
 				}
 			}
-			Console.WriteLine ("\nRunning job: "+RunningJob.getPID()+" "+RunningJob.getCPU_burst1()+" "+RunningJob.getCPU_burst2());
+			if (RunningJob.getCPU_burst1 () < 0) {
+				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst2 ());
+			} else {
+				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst1 ());
+			}
 			Console.Write ("IO Queue: ");
 			if (IO_Queue.Count == 0) {
 				Console.WriteLine ("NOTHING!");
@@ -121,7 +127,11 @@ namespace Scheduler
 			if (IO_Job.getPID () == -1) {
 				Console.WriteLine ("IO Job: NO RUNNING JOB");
 			} else {
-				Console.WriteLine ("IO job: " + IO_Job.getPID ());
+				if (RunningJob.getCPU_burst1 () < 0) {
+					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ());
+				} else {
+					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ());
+				}
 			}
 			Console.WriteLine ("==============================================");
 		}
