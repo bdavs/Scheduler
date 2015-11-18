@@ -53,7 +53,7 @@ namespace Scheduler
 		public int getPID()
 		{
 			return pid;
-		}
+			}
 
 		public int getCPU_burst1()
 		{
