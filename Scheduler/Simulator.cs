@@ -31,9 +31,9 @@ namespace Scheduler
 				Scheduler[] sim = new Scheduler[7];
 				{
 					int i = 0;
-					sim [i++] = new FCFS (p.clone ()); 
+					//sim [i++] = new FCFS (p.clone ()); 
 
-					//sim [i++] = new RR (p.clone ()); 
+					sim [i++] = new RR (p.clone ()); 
 
 					//sim [i++] = new RR (p.clone ()); 
 

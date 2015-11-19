@@ -9,17 +9,22 @@ namespace Scheduler
 		public ProcessList RRprocessList = new ProcessList ();
 		public Queue<Process> ReadyQueue = new Queue<Process>();
 		public Queue<Process> IOQueue = new Queue<Process>();
-
+		public Process currentProcess;
+		public Process currentIO;
+		public int time;
+		Queue<Process> Final_List;
 
 		public RR(ProcessList processList)
 		{
 			RRprocessList = processList.clone ();
+			Final_List = new Queue<Process> ();
 			simulate(10,new StreamReader("../../output.txt"));
 		}
 
 
 		public override void simulate(int snapshot, StreamReader pa) {
 			// TODO Auto-generated method stub
+			Console.WriteLine ("**************************************RR STARTED**************************");
 			quantum	= RRprocessList.getQuantum();
 			foreach (Process process in RRprocessList.processes) {
 				ReadyQueue.Enqueue(process);
@@ -28,24 +33,26 @@ namespace Scheduler
 
 			//Console.WriteLine (RRprocessList.getQuantum ());
 			while (ReadyQueue.Count > 0) {
-				Process currentProcess = ReadyQueue.Dequeue ();
-				Process currentIO = new Process(-1,-1,-1,-1,-1);
+				currentProcess = ReadyQueue.Dequeue ();
+				currentIO = new Process(-1,-1,-1,-1,-1);
 				if (IOQueue.Count > 0) {
 					currentIO = IOQueue.Dequeue ();
 					if (currentIO.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentIO);
 					}
 				}	
-				Console.WriteLine ("PID: " + currentProcess.getPID ());
+				//Console.WriteLine ("PID: " + currentProcess.getPID ());
 				for (int i = 0; i < quantum; i++) {
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
-					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst() > 0) {
+					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentProcess);
 						break;
 					} else if (currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
-					} 
+					} else {
+						Final_List.Enqueue (currentProcess);
+					}
 					//Console.WriteLine ("i = " + i);
 					if (currentIO.getIO_burst ()> 0) {
 						currentIO.decrementIO_burst ();
@@ -57,19 +64,82 @@ namespace Scheduler
 							currentIO = new Process (-1, -1, -1, -1, -1);
 						}
 					}
+					time++;
+
+
+
+					//POKEMON SNAP
+					if (time % snapshot == 0) {
+						System.Console.WriteLine ("Taking Snap at time: " + time);
+						this.snapshot ();
+					}
+
 
 				}
 
 				if (currentProcess.getCPU_burst1 () != 0 || currentProcess.getCPU_burst2 () != 0) {
 					ReadyQueue.Enqueue (currentProcess);
 				}
+
 			}
+			foreach (Process item in Final_List) item.period--;
+			finalReport (pa);
+			Console.WriteLine ("**************************************RR ENDED**************************");
 		}
 
 
 		public override void finalReport(StreamReader pw) {
-			// TODO Auto-generated method stub
+			int waiting_time = 0;
+			int turnaround_time = 0;
+			Console.WriteLine ("Final Report");
+			Console.WriteLine ("PID         WAIT TIME");
+			foreach (Process item in Final_List) {
+				waiting_time += item.period;
+				Console.WriteLine (item.getPID () + "               " + item.period);
+			}
+			Console.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
+			Console.WriteLine ("PID         TURNAROUND TIME");
+			foreach (Process item in Final_List) {
+				turnaround_time += item.period+item.activePeriod;
+				Console.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
+			}
+			Console.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+		}
 
+		void snapshot(){
+			Console.WriteLine ("==============================================");
+			if (ReadyQueue.Count == 0) {
+				Console.Write ("Ready Queue: NOTHING");
+			} else {
+				Console.Write ("Ready Queue: ");
+				foreach (Process item in ReadyQueue) {
+					System.Console.Write (item.getPID () + " ");
+				}
+			}
+			if (currentProcess.getCPU_burst1 () < 0) {
+				Console.WriteLine ("\nRunning job: " + currentProcess.getPID () + " Current Burst: " + currentProcess.getCPU_burst2 ()+ " WT: " + currentProcess.period+" RT: " + currentProcess.activePeriod);
+			} else {
+				Console.WriteLine ("\nRunning job: " + currentProcess.getPID () + " Current Burst: " + currentProcess.getCPU_burst1 ()+ " WT: " + currentProcess.period+" RT: " + currentProcess.activePeriod);
+			}
+			Console.Write ("IO Queue: ");
+			if (IOQueue.Count == 0) {
+				Console.WriteLine ("NOTHING!");
+			} else {
+				foreach (Process item in IOQueue) {
+					System.Console.Write (item.getPID () + " ");
+				}
+				Console.WriteLine ("");
+			}
+			if (currentIO.getPID () == -1) {
+				Console.WriteLine ("IO Job: NO RUNNING JOB");
+			} else {
+				if (currentProcess.getCPU_burst1 () < 0) {
+					Console.WriteLine ("IO job: " + currentIO.getPID () + " Current Burst: " + currentIO.getIO_burst ()+" WT: " + currentProcess.period);
+				} else {
+					Console.WriteLine ("IO job: " + currentIO.getPID () + " Current Burst: " + currentIO.getIO_burst ()+" WT: " + currentProcess.period);
+				}
+			}
+			Console.WriteLine ("==============================================");
 		}
 
 
