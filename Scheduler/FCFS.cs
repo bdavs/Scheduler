@@ -33,24 +33,22 @@ namespace Scheduler
 				item.activePeriod = 0;
 			}
 			while ((Ready_Queue.Count != 0 || IO_Queue.Count != 0) || (RunningJob.getCPU_burst1 () > 0 || RunningJob.getCPU_burst2 () > 0)||(IO_Job.getIO_burst()>0)) {
-
-				//POKEMON SNAP
-				if (time % snapshot == 0) {
-					System.Console.WriteLine ("Taking Snap at time: " + time);
-					this.snapshot ();
-				}
-
 				//Get the running job 
 				if (RunningJob.getPID () == -1) {
 					//OH GEEZ RICK, Were on the fist iteration
 					RunningJob = Ready_Queue.Dequeue ();
 				} 
 
+
+
 				//RUNNING JOB LOGIC START
 				if (RunningJob.getCPU_burst1 () == 1) {
 					IO_Queue.Enqueue (RunningJob);
-					if (Ready_Queue.Count != 0)
+					if (Ready_Queue.Count != 0) {
+						RunningJob.activePeriod++;
 						RunningJob = Ready_Queue.Dequeue ();
+						RunningJob.period++;
+					}
 				} else if (RunningJob.getCPU_burst1 () < 1) {
 					if (RunningJob.getCPU_burst2 () != 0) {
 						RunningJob.decrementCPUBurst2 ();
@@ -92,9 +90,10 @@ namespace Scheduler
 				}
 				//IO JOB LOGIC END
 
+
 				//Count waiting time
 				foreach (Process item in Ready_Queue) {
-					if (item.getPID () < time) {
+					if (item.getPID () <= time) {
 						item.period++;
 					}
 				}
@@ -102,12 +101,17 @@ namespace Scheduler
 						//item.period++;
 				}
 				//End waiting time count
-
-
-
 				time++;
+
+
+
+				//POKEMON SNAP
+				if (time % snapshot == 0) {
+					System.Console.WriteLine ("Taking Snap at time: " + time);
+					this.snapshot ();
+				}
 			}
-			Final_List.Enqueue (RunningJob);
+			Final_List.Enqueue (RunningJob); foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
 			Console.WriteLine ("**************************************FCFS ENDED**************************");
 		}
