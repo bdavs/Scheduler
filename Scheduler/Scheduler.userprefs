@@ -1,5 +1,8 @@
 ﻿<Properties StartupItem="Scheduler.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench />
+=======
   <MonoDevelop.Ide.Workbench ActiveDocument="FCFS.cs">
     <Files>
       <File FileName="FCFS.cs" Line="42" Column="42" />
@@ -18,6 +21,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+>>>>>>> 7724302bb2e035435f1f46437ce5917207bfe21f
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
