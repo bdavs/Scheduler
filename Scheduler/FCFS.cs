@@ -129,7 +129,7 @@ namespace Scheduler
 			Console.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
 				turnaround_time += item.period+item.activePeriod;
-				Console.WriteLine (item.getPID () + "               " + (item.activePeriod));
+				Console.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
 			Console.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
 		}
