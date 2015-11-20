@@ -44,6 +44,7 @@
     <Compile Include="ProcessList.cs" />
     <Compile Include="RR.cs" />
     <Compile Include="SJF.cs" />
+    <Compile Include="Priority.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
