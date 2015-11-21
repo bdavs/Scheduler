@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Scheduler.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Priority.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Simulator.cs">
     <Files>
       <File FileName="FCFS.cs" Line="1" Column="1" />
-      <File FileName="Simulator.cs" Line="42" Column="42" />
+      <File FileName="Simulator.cs" Line="33" Column="33" />
       <File FileName="Scheduler.cs" Line="1" Column="1" />
       <File FileName="Process.cs" Line="1" Column="1" />
       <File FileName="Program.cs" Line="1" Column="1" />
       <File FileName="RR.cs" Line="1" Column="1" />
       <File FileName="ProcessList.cs" Line="1" Column="1" />
       <File FileName="SJF.cs" Line="1" Column="1" />
-      <File FileName="Priority.cs" Line="42" Column="42" />
+      <File FileName="Priority.cs" Line="25" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
