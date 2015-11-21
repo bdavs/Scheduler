@@ -45,14 +45,21 @@ namespace Scheduler
 				//quantum for loop
 				for (int i = 0; i < quantum; i++) {
 					//cpu processing
+
+					foreach (Process p in ReadyQueue) {
+						p.period++;
+					}
+					currentProcess.activePeriod++;
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentProcess);
+						break;
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () == 0 && currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
 					} else {
 						Final_List.Enqueue (currentProcess);
+						break;
 					}
 
 					Console.WriteLine (currentProcess.getPID ());
@@ -76,20 +83,19 @@ namespace Scheduler
 					//increment time
 					time++;
 
-
-
 					//POKEMON SNAP
 					if (time % snapshot == 0) {
 						System.Console.WriteLine ("Taking Snap at time: " + time);
 						this.snapshot ();
 					}
-
-
 				}
 
-				if (currentProcess.getCPU_burst1 () > 0 || (currentProcess.getCPU_burst2 () > 0 && currentProcess.getIO_burst() == 0)) {
+				if (currentProcess.getCPU_burst1 () > 0 || (currentProcess.getCPU_burst2 () > 0 && currentProcess.getIO_burst () == 0)) {
 					ReadyQueue.Enqueue (currentProcess);
+				} else if(currentProcess.getCPU_burst1 () == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0){
+					Final_List.Enqueue (currentProcess);
 				}
+				if (ReadyQueue.Count>0) currentProcess = ReadyQueue.Dequeue ();	
 
 			}
 			foreach (Process item in Final_List) item.period--;

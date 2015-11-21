@@ -30,30 +30,21 @@ namespace Scheduler
 				Scheduler[] sim = new Scheduler[7];
 				{
 					int i = 0;
-<<<<<<< HEAD
+
 					//sim [i++] = new FCFS (p.clone ()); 
 
 					sim [i++] = new RR (p.clone ()); 
 
 					//sim[i++] = new Priority(p.clone ());
 
-=======
+
 
 					//sim [i++] = new FCFS (new ProcessList(fileName)); 
 					//sim [i++] = new Priority (new ProcessList(fileName));
 					//sim [i++] = new RR (new ProcessList(fileName)); 
-					sim [i++] = new SJR (new ProcessList(fileName));
-					//sim [i++] = new RR (p.clone ()); 
-					//sim[i++] = new Priority(p.clone ());
-					//sim [i++] = new FCFS (p.clone ());
->>>>>>> b32c9eed520b6494c6686d3b3b17da9c47197ea2
-					/*sim [i++] = new SJF (p.clone ());
-					sim [i++] = new SJR (p.clone ());
-					sim [i++] = new Priority (p.clone ());
-					sim [i++] = new RoundRobin (p.clone ());
-					sim [i++] = new PRM (p.clone ());
-					sim [i++] = new EDF (p.clone ());
-					*/
+				//	sim [i++] = new SJR (new ProcessList(fileName));
+
+
 				}
 
 			} catch (Exception e) {
