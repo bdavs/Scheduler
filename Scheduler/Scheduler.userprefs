@@ -1,6 +1,21 @@
 ﻿<Properties StartupItem="Scheduler.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Simulator.cs">
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Simulator.cs">
+    <Files>
+      <File FileName="FCFS.cs" Line="48" Column="30" />
+      <File FileName="ProcessList.cs" Line="1" Column="1" />
+      <File FileName="Simulator.cs" Line="8" Column="17" />
+      <File FileName="Scheduler.cs" Line="1" Column="1" />
+      <File FileName="Process.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="10" Column="14" />
+      <File FileName="RR.cs" Line="44" Column="7" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Priority.cs">
+>>>>>>> 5d92b59ee71ca75019dbe7dac1b05137eb1f00de
     <Files>
       <File FileName="FCFS.cs" Line="1" Column="1" />
       <File FileName="Simulator.cs" Line="33" Column="33" />
@@ -10,8 +25,24 @@
       <File FileName="RR.cs" Line="1" Column="1" />
       <File FileName="ProcessList.cs" Line="1" Column="1" />
       <File FileName="SJF.cs" Line="1" Column="1" />
+<<<<<<< HEAD
       <File FileName="Priority.cs" Line="25" Column="25" />
+=======
+      <File FileName="Priority.cs" Line="42" Column="42" />
+>>>>>>> 4cf26902f0302a4384e9135840d95eb9f1c482b3
+>>>>>>> 5d92b59ee71ca75019dbe7dac1b05137eb1f00de
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Scheduler" expanded="True">
+            <Node name="Scheduler" expanded="True">
+              <Node name="Simulator.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
