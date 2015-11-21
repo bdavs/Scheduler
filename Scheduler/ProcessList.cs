@@ -27,8 +27,8 @@ namespace Scheduler
 				//Read in "Quantum"
 				input.ReadLine();
 
-				//read in quantum
-				quantum = Int32.Parse(input.ReadLine());
+				//read in quantum 
+				quantum = Int32.Parse(input.ReadLine()) ;
 
 
 				//Advance to the next line to skip past headers %Pid CPU Burst etc

@@ -26,44 +26,54 @@ namespace Scheduler
 			// TODO Auto-generated method stub
 			Console.WriteLine ("**************************************RR STARTED**************************");
 			quantum	= RRprocessList.getQuantum();
+
+			//add all processes to queue
 			foreach (Process process in RRprocessList.processes) {
 				ReadyQueue.Enqueue(process);
-				Console.WriteLine (process.getCPU_burst1 ());
+				//Console.WriteLine (process.getCPU_burst1 ());
 			}
 
-			//Console.WriteLine (RRprocessList.getQuantum ());
+			//initialize currents
+			currentProcess = ReadyQueue.Dequeue ();
+			currentIO = new Process(-1,-1,-1,-1,-1);
+
+			//main RR while loop
 			while (ReadyQueue.Count > 0) {
-				currentProcess = ReadyQueue.Dequeue ();
-				currentIO = new Process(-1,-1,-1,-1,-1);
-				if (IOQueue.Count > 0) {
-					currentIO = IOQueue.Dequeue ();
-					if (currentIO.getIO_burst () > 0) {
-						IOQueue.Enqueue (currentIO);
-					}
-				}	
-				//Console.WriteLine ("PID: " + currentProcess.getPID ());
+				
+
+
+				//quantum for loop
 				for (int i = 0; i < quantum; i++) {
+					//cpu processing
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentProcess);
-						break;
-					} else if (currentProcess.getCPU_burst2 () > 0) {
+					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () == 0 && currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
 					} else {
 						Final_List.Enqueue (currentProcess);
 					}
-					//Console.WriteLine ("i = " + i);
-					if (currentIO.getIO_burst ()> 0) {
+
+					Console.WriteLine (currentProcess.getPID ());
+
+
+					//io processing
+					if (currentIO.getIO_burst () > 0) {
 						currentIO.decrementIO_burst ();
-					} else if(currentIO.getIO_burst() == 0){
+					} else if (currentIO.getIO_burst () == 0) {
 						ReadyQueue.Enqueue (currentIO);
 						if (IOQueue.Count > 0) {
 							currentIO = IOQueue.Dequeue ();
 						} else {
 							currentIO = new Process (-1, -1, -1, -1, -1);
 						}
+					} else {
+						if (IOQueue.Count > 0) {
+							currentIO = IOQueue.Dequeue ();
+						} 
 					}
+					//increment time
 					time++;
 
 
@@ -77,7 +87,7 @@ namespace Scheduler
 
 				}
 
-				if (currentProcess.getCPU_burst1 () != 0 || currentProcess.getCPU_burst2 () != 0) {
+				if (currentProcess.getCPU_burst1 () > 0 || (currentProcess.getCPU_burst2 () > 0 && currentProcess.getIO_burst() == 0)) {
 					ReadyQueue.Enqueue (currentProcess);
 				}
 
