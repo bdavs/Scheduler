@@ -31,18 +31,18 @@ namespace Scheduler
 				{
 					int i = 0;
 
-					//sim [i++] = new FCFS (p.clone ()); 
-
-					sim [i++] = new RR (p.clone ()); 
-
-					//sim[i++] = new Priority(p.clone ());
-
-
-
 					//sim [i++] = new FCFS (new ProcessList(fileName)); 
-					//sim [i++] = new Priority (new ProcessList(fileName));
+
 					//sim [i++] = new RR (new ProcessList(fileName)); 
-				//	sim [i++] = new SJR (new ProcessList(fileName));
+
+					//sim[i++] = new Priority(new ProcessList(fileName));
+					sim [i++] = new MFQ (new ProcessList(fileName)); 
+
+
+
+					//sim [i++] = new Priority (new ProcessList(fileName));
+
+					//sim [i++] = new SJR (new ProcessList(fileName));
 
 
 				}

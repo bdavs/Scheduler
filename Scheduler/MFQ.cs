@@ -25,7 +25,7 @@ namespace Scheduler
 		public override void simulate(int snapshot, StreamReader pa) {
 			// TODO Auto-generated method stub
 			Console.WriteLine ("**************************************RR STARTED**************************");
-			quantum	= RRprocessList.getQuantum();
+			quantum	= 1;//RRprocessList.getQuantum();
 
 			//add all processes to queue
 			foreach (Process process in RRprocessList.processes) {
@@ -34,17 +34,26 @@ namespace Scheduler
 			}
 
 			//initialize currents
+			ReadyQueue.Enqueue(new Process(-1,-1,-1,-1,-1));//dummy value, will check foe this later
+
 			currentProcess = ReadyQueue.Dequeue ();
 			currentIO = new Process(-1,-1,-1,-1,-1);
 
 			//main RR while loop
 			while (ReadyQueue.Count > 0) {
 
-
+				if (currentProcess.getPID () == -1) {
+					quantum *= 2;
+					ReadyQueue.Enqueue (currentProcess);
+					currentProcess = ReadyQueue.Dequeue ();
+					continue;
+				}
 
 				//quantum for loop
 				for (int i = 0; i < quantum; i++) {
+
 					//cpu processing
+					//Console.WriteLine (currentProcess.getPID ());
 
 					foreach (Process p in ReadyQueue) {
 						p.period++;
@@ -54,15 +63,14 @@ namespace Scheduler
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentProcess);
+						//Console.WriteLine ("into IO:"+ currentProcess.getPID ());
 						break;
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () == 0 && currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
 					} else {
-						Final_List.Enqueue (currentProcess);
+						//Final_List.Enqueue (currentProcess);
 						break;
 					}
-
-					Console.WriteLine (currentProcess.getPID ());
 
 
 					//io processing
@@ -92,6 +100,9 @@ namespace Scheduler
 
 				if (currentProcess.getCPU_burst1 () > 0 || (currentProcess.getCPU_burst2 () > 0 && currentProcess.getIO_burst () == 0)) {
 					ReadyQueue.Enqueue (currentProcess);
+				} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0 && !IOQueue.Contains(currentProcess)){
+					IOQueue.Enqueue (currentProcess);
+					//Console.WriteLine ("into IO2:"+ currentProcess.getPID ());
 				} else if(currentProcess.getCPU_burst1 () == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0){
 					Final_List.Enqueue (currentProcess);
 				}
