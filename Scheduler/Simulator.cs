@@ -5,13 +5,12 @@ namespace Scheduler
 	public class Simulator
 	{
 		static String fileName = "../../input_file.txt";
-		static String output= "../../output.txt";
+		//static String output= "../../output.txt";
 		static bool debug = true;
 		public Simulator()
 		{
 			try {
 				ProcessList p = new ProcessList (fileName);
-
 				if (debug) {
 					//Echo processes to console
 					Console.WriteLine ("===================================");
@@ -31,10 +30,11 @@ namespace Scheduler
 				Scheduler[] sim = new Scheduler[7];
 				{
 					int i = 0;
-					sim [i++] = new FCFS (p.clone ()); 
 
-					//sim [i++] = new RR (p.clone ()); 
-
+					sim [i++] = new FCFS (new ProcessList(fileName)); 
+					sim [i++] = new Priority (new ProcessList(fileName));
+					//sim [i++] = new RR (new ProcessList(fileName)); 
+					sim [i++] = new SJF (new ProcessList(fileName));
 					//sim [i++] = new RR (p.clone ()); 
 					//sim[i++] = new Priority(p.clone ());
 					//sim [i++] = new FCFS (p.clone ());
