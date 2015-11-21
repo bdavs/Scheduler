@@ -148,7 +148,7 @@ namespace Scheduler
 			}
 			Final_List.Add (RunningJob); foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
-			Console.WriteLine ("**************************************PRIORITY ENDED**************************");
+			Console.WriteLine ("**************************************PRIORITYENDED**************************");
 		}
 
 		public override void finalReport(StreamReader pw) {

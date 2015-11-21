@@ -1,5 +1,6 @@
 #scheduler
-A series of CPU scheduling algorithms (Written in C#) for the purpose of qualitative analysis on a given data set
+A series of CPU scheduling algorithms (Written in C#) for the purpose of qualitative analysis on a given data set.
+
 Algorithms implemented:
 * FCFS
 * RR
