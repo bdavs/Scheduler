@@ -508,3 +508,4 @@ PID         TURNAROUND TIME   PRIORITY
 9               9             1
 AVERAGE TURNAROUND TIME: 43
 **************************************PRIORITYENDED**************************
+The best algorithm for the data set is SJR with a average turnaround time of 39

@@ -8,8 +8,10 @@ namespace Scheduler
 		//static String output= "../../output.txt";
 		static bool debug = true;
 		StreamWriter output;
+		int Lowest;
 		public Simulator()
 		{
+			Lowest = 99999;
 			output = new StreamWriter ("../../output.txt");
 			try {
 				ProcessList p = new ProcessList (fileName);
@@ -29,11 +31,11 @@ namespace Scheduler
 				}
 
 				//Populate Schedulers
-				Scheduler[] sim = new Scheduler[7];
+				Scheduler[] sim = new Scheduler[6];
 				{
 					int i = 0;
 
-					sim [i++] = new FCFS (new ProcessList(fileName),output); 
+					sim [i++] = new FCFS (new ProcessList(fileName),output);
 					sim [i++] = new SJF (new ProcessList(fileName),output);
 					sim [i++] = new SJR (new ProcessList(fileName),output);
 					sim [i++] = new RR (new ProcessList(fileName),output); 
@@ -47,12 +49,30 @@ namespace Scheduler
 
 					//sim [i++] = new SJR (new ProcessList(fileName));
 
-					output.Close ();
-				}
 
+				}
+				int j; 
+				for(j =0 ; j < 6; j++){
+					try{
+						if(sim[j].Average_TurnAround < Lowest)
+							Lowest = sim[j].Average_TurnAround;
+					}catch(NullReferenceException){
+						//THIS MEANS WE DID NOT PUT ALL THE PROCESSES IN YET WHICH IS FINE
+					}
+				}
+				foreach(Scheduler item in sim){
+					try{
+						if(item.Average_TurnAround == Lowest)
+							output.WriteLine ("The best algorithm for the data set is "+item.GetType ().Name+" with a average turnaround time of "+item.Average_TurnAround);
+					}catch(NullReferenceException){
+						//THIS MEANS WE DID NOT PUT ALL THE PROCESSES IN YET WHICH IS FINE
+					}
+				}
 			} catch (Exception e) {
-				output.WriteLine ("Error trying to populate the process list: " + e.Message);
+				Console.WriteLine ("Error trying to populate the process list: " + e.Message);
 				output.WriteLine ("Program quitting");
+			}finally{
+				output.Close ();
 			}
 		}
 

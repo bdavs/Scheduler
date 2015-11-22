@@ -131,7 +131,8 @@ namespace Scheduler
 				turnaround_time += item.period+item.activePeriod;
 				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			Average_TurnAround = turnaround_time / Final_List.Count;
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround));
 		}
 
 		void snapshot(StreamWriter pa){

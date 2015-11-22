@@ -8,7 +8,7 @@ namespace Scheduler
 		public ProcessList processList;
 		public List<String> CPUOrdering = new List<String>();
 		public int processInCPU;
-
+		public int Average_TurnAround;
 		public Scheduler(){}
 
 		public Scheduler(ProcessList processList)
