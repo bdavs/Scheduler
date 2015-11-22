@@ -3,21 +3,13 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Scheduler/Simulator.cs">
     <Files>
       <File FileName="Scheduler/Simulator.cs" Line="1" Column="1" />
-      <File FileName="Scheduler/RR.cs" Line="60" Column="60" />
-      <File FileName="Scheduler/MFQ.cs" Line="1" Column="1" />
-      <File FileName="Scheduler/FCFS.cs" Line="4" Column="4" />
-      <File FileName="Scheduler/Priority.cs" Line="60" Column="60" />
-      <File FileName="Scheduler/SJF.cs" Line="60" Column="60" />
-      <File FileName="Scheduler/SJR.cs" Line="60" Column="60" />
+      <File FileName="Scheduler/RR.cs" Line="1" Column="1" />
+      <File FileName="Scheduler/MFQ.cs" Line="55" Column="55" />
+      <File FileName="Scheduler/FCFS.cs" Line="1" Column="1" />
+      <File FileName="Scheduler/Priority.cs" Line="1" Column="1" />
+      <File FileName="Scheduler/SJF.cs" Line="1" Column="1" />
+      <File FileName="Scheduler/SJR.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>sim[0]</Value>
-          <Value>sim[0]</Value>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
