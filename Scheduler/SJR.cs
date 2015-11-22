@@ -174,6 +174,7 @@ namespace Scheduler
 
 			}
 			Final_List.Add (RunningJob); foreach (Process item in Final_List) item.period--;
+			Final_List.Remove (RunningJob);Final_List.Remove (RunningJob);
 			finalReport (pa);
 			pa.WriteLine ("**************************************SJR ENDED**************************");
 		}
