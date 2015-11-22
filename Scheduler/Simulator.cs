@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 namespace Scheduler
 {
 	public class Simulator
@@ -7,6 +7,7 @@ namespace Scheduler
 		static String fileName = "../../input_file.txt";
 		//static String output= "../../output.txt";
 		static bool debug = true;
+		StreamWriter output;
 		public Simulator()
 		{
 			try {
@@ -30,13 +31,13 @@ namespace Scheduler
 				Scheduler[] sim = new Scheduler[7];
 				{
 					int i = 0;
-
-					//sim [i++] = new FCFS (new ProcessList(fileName)); 
-
+					output = new StreamWriter ("../../output.txt");
+					sim [i++] = new FCFS (new ProcessList(fileName),output); 
+					sim [i++] = new SJF (new ProcessList(fileName),output);
 					//sim [i++] = new RR (new ProcessList(fileName)); 
 
 					//sim[i++] = new Priority(new ProcessList(fileName));
-					sim [i++] = new MFQ (new ProcessList(fileName)); 
+					//sim [i++] = new MFQ (new ProcessList(fileName)); 
 
 
 
@@ -44,7 +45,7 @@ namespace Scheduler
 
 					//sim [i++] = new SJR (new ProcessList(fileName));
 
-
+					output.Close ();
 				}
 
 			} catch (Exception e) {

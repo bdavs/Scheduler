@@ -18,11 +18,11 @@ namespace Scheduler
 		{
 			RRprocessList = processList.clone ();
 			Final_List = new Queue<Process> ();
-			simulate(10,new StreamReader("../../output.txt"));
+			simulate(10,new StreamWriter("../../output.txt"));
 		}
 
 
-		public override void simulate(int snapshot, StreamReader pa) {
+		public override void simulate(int snapshot, StreamWriter pa) {
 			// TODO Auto-generated method stub
 			Console.WriteLine ("**************************************RR STARTED**************************");
 			quantum	= RRprocessList.getQuantum();
@@ -108,7 +108,7 @@ namespace Scheduler
 		}
 
 
-		public override void finalReport(StreamReader pw) {
+		public override void finalReport(StreamWriter pw) {
 			int waiting_time = 0;
 			int turnaround_time = 0;
 			Console.WriteLine ("Final Report");

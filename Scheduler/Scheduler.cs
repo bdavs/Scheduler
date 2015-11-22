@@ -16,10 +16,10 @@ namespace Scheduler
 			this.processList = processList;
 		}
 
-		public abstract void simulate(int snapshot, StreamReader pa );
+		public abstract void simulate(int snapshot, StreamWriter pa );
 		//Will run executing the simulation, must support snapshots to pw
 
-		public abstract void finalReport(StreamReader pw);
+		public abstract void finalReport(StreamWriter pa);
 		//Will write the final report to pw
 
 	}

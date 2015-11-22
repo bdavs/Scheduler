@@ -26,12 +26,12 @@ namespace Scheduler
 			RunningJob = new Process (-1,0,0,0,0);
 			IO_Job = new Process (-1, 0, 0, 0,0);
 			Final_List = new List<Process> ();
-			StreamReader output = new StreamReader ("../../output.txt");
+			StreamWriter output = new StreamWriter ("../../output.txt");
 			simulate (1, output);
 		}
 
 
-		public override void simulate(int snapshot, StreamReader pa) {
+		public override void simulate(int snapshot, StreamWriter pa) {
 			int i;
 			List<Process> TempList = new List<Process> ();
 			Console.WriteLine ("**************************************SJF STARTED**************************");
@@ -178,7 +178,7 @@ namespace Scheduler
 			Console.WriteLine ("**************************************SJR ENDED**************************");
 		}
 
-		public override void finalReport(StreamReader pw) {
+		public override void finalReport(StreamWriter pw) {
 			int waiting_time = 0;
 			int turnaround_time = 0;
 			Final_List.Sort ((p,q) => p.getPID ().CompareTo (q.getPID ()));

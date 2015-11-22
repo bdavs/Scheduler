@@ -11,7 +11,7 @@ namespace Scheduler
 		int time = 0;
 		Process RunningJob;
 		Process IO_Job;
-		public FCFS(ProcessList processList)
+		public FCFS(ProcessList processList, StreamWriter output)
 		{
 			Ready_Queue = new Queue<Process>();
 			foreach (Process item in processList.processes) {
@@ -21,13 +21,13 @@ namespace Scheduler
 			RunningJob = new Process (-1,0,0,0,0);
 			IO_Job = new Process (-1, 0, 0, 0,0);
 			Final_List = new Queue<Process> ();
-			StreamReader output = new StreamReader ("../../output.txt");
+			//StreamWriter output = new StreamWriter ("../../output.txt");
 			simulate (1, output);
 		}
 
 	
-		public override void simulate(int snapshot, StreamReader pa) {
-			Console.WriteLine ("**************************************FCFS STARTED**************************");
+		public override void simulate(int snapshot, StreamWriter pa) {
+			pa.WriteLine ("**************************************FCFS STARTED**************************");
 			foreach (Process item in Ready_Queue) {
 				item.period = 0;
 				item.activePeriod = 0;
@@ -107,67 +107,67 @@ namespace Scheduler
 
 				//POKEMON SNAP
 				if (time % snapshot == 0) {
-					System.Console.WriteLine ("Taking Snap at time: " + time);
-					this.snapshot ();
+					pa.WriteLine ("Taking Snap at time: " + time);
+					this.snapshot (pa);
 				}
 			}
 			Final_List.Enqueue (RunningJob); foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
-			Console.WriteLine ("**************************************FCFS ENDED**************************");
+			pa.WriteLine ("**************************************FCFS ENDED**************************");
 		}
 
-		public override void finalReport(StreamReader pw) {
+		public override void finalReport(StreamWriter pa) {
 			int waiting_time = 0;
 			int turnaround_time = 0;
-			Console.WriteLine ("Final Report");
-			Console.WriteLine ("PID         WAIT TIME");
+			pa.WriteLine ("Final Report");
+			pa.WriteLine ("PID         WAIT TIME");
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
-				Console.WriteLine (item.getPID () + "               " + item.period);
+				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
-			Console.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
-			Console.WriteLine ("PID         TURNAROUND TIME");
+			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
+			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
 				turnaround_time += item.period+item.activePeriod;
-				Console.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
+				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
-			Console.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
 		}
 
-		void snapshot(){
-			Console.WriteLine ("==============================================");
+		void snapshot(StreamWriter pa){
+			pa.WriteLine ("==============================================");
 			if (Ready_Queue.Count == 0) {
-				Console.Write ("Ready Queue: NOTHING");
+				pa.Write ("Ready Queue: NOTHING");
 			} else {
-				Console.Write ("Ready Queue: ");
+				pa.Write ("Ready Queue: ");
 				foreach (Process item in Ready_Queue) {
-					System.Console.Write (item.getPID () + " ");
+					pa.Write (item.getPID () + " ");
 				}
 			}
 			if (RunningJob.getCPU_burst1 () < 0) {
-				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst2 ()+ " WT: " + RunningJob.period+" RT: " + RunningJob.activePeriod);
+				pa.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst2 ()+ " WT: " + RunningJob.period+" RT: " + RunningJob.activePeriod);
 			} else {
-				Console.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst1 ()+ " WT: " + RunningJob.period+" RT: " + RunningJob.activePeriod);
+				pa.WriteLine ("\nRunning job: " + RunningJob.getPID () + " Current Burst: " + RunningJob.getCPU_burst1 ()+ " WT: " + RunningJob.period+" RT: " + RunningJob.activePeriod);
 			}
-			Console.Write ("IO Queue: ");
+			pa.Write ("IO Queue: ");
 			if (IO_Queue.Count == 0) {
-				Console.WriteLine ("NOTHING!");
+				pa.WriteLine ("NOTHING!");
 			} else {
 				foreach (Process item in IO_Queue) {
-					System.Console.Write (item.getPID () + " ");
+					pa.Write (item.getPID () + " ");
 				}
-				Console.WriteLine ("");
+				pa.WriteLine ("");
 			}
 			if (IO_Job.getPID () == -1) {
-				Console.WriteLine ("IO Job: NO RUNNING JOB");
+				pa.WriteLine ("IO Job: NO RUNNING JOB");
 			} else {
 				if (RunningJob.getCPU_burst1 () < 0) {
-					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ()+" WT: " + RunningJob.period);
+					pa.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ()+" WT: " + RunningJob.period);
 				} else {
-					Console.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ()+" WT: " + RunningJob.period);
+					pa.WriteLine ("IO job: " + IO_Job.getPID () + " Current Burst: " + IO_Job.getIO_burst ()+" WT: " + RunningJob.period);
 				}
 			}
-			Console.WriteLine ("==============================================");
+			pa.WriteLine ("==============================================");
 		}
 	}
 }
