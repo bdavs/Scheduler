@@ -70,156 +70,46 @@ CPU Burst 2: 1
 IO Burst : 10
 Priority: 1
 Period: 1
-**************************************FCFS STARTED**************************
+**************************************MFQ STARTED**************************
 Taking Snap at time: 10
 ==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 
-Running job: 2 Current Burst: 11 WT: 7 RT: 1
+Ready Queue: 4 5 6 7 8 9 -1 
+Running job: 3 Current Burst: 0 WT: 1 RT: 2
 IO Queue: NOTHING!
-IO job: 1 Current Burst: 1 WT: 7
+IO Job: NO RUNNING JOB
+==============================================
+queue2
+==============================================
+Ready Queue: 0 1 2 
+Running job: 3 Current Burst: 0 WT: 1 RT: 2
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 20
 ==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 1 WT: 7 RT: 11
+Ready Queue: 8 9 -1 
+Running job: 7 Current Burst: 7 WT: 1 RT: 2
 IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
+IO job: 5 Current Burst: 1 WT: 1
+==============================================
+queue2
+==============================================
+Ready Queue: 0 1 2 4 3 6 
+Running job: 7 Current Burst: 7 WT: 1 RT: 2
+IO Queue: NOTHING!
+IO job: 5 Current Burst: 1 WT: 1
 ==============================================
 Taking Snap at time: 30
 ==============================================
-Ready Queue: 7 8 9 0 1 2 3 4 
-Running job: 6 Current Burst: 3 WT: 23 RT: 1
-IO Queue: NOTHING!
-IO job: 5 Current Burst: 3 WT: 23
+Ready Queue: NOTHING
+Running job: 2 Current Burst: 8 WT: 25 RT: 5
+IO Queue: 0 1 
+IO job: 9 Current Burst: 7 WT: 25
 ==============================================
 Taking Snap at time: 40
 ==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 1 WT: 26 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 50
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 5 WT: 33 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 60
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 1 WT: 48 RT: 9
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 6 WT: 48
-==============================================
-Taking Snap at time: 70
-==============================================
-Ready Queue: 5 6 7 8 9 
-Running job: 4 Current Burst: 4 WT: 59 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 80
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 8 WT: 58 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 90
-==============================================
 Ready Queue: NOTHING
-Running job: 9 Current Burst: 1 WT: 70 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Final Report
-PID         WAIT TIME
-0               47
-1               54
-2               51
-3               59
-4               58
-5               62
-6               67
-7               57
-8               65
-9               69
-AVERAGE WAITING TIME: 58
-PID         TURNAROUND TIME
-0               57
-1               62
-2               63
-3               61
-4               66
-5               68
-6               71
-7               73
-8               79
-9               71
-AVERAGE TURNAROUND TIME: 67
-**************************************FCFS ENDED**************************
-**************************************SJF STARTED**************************
-Taking Snap at time: 10
-==============================================
-Ready Queue: 1 0 2 8 7 
-Running job: 4 Current Burst: 3 WT: 5 RT: 1
-IO Queue: 3 6 5 
-IO job: 9 Current Burst: 1 WT: 5
-==============================================
-Taking Snap at time: 20
-==============================================
-Ready Queue: 2 8 7 9 3 6 5 
-Running job: 0 Current Burst: 2 WT: 17 RT: 3
-IO Queue: 1 
-IO job: 4 Current Burst: 3 WT: 17
-==============================================
-Taking Snap at time: 30
-==============================================
-Ready Queue: 8 7 9 3 6 5 4 1 0 
-Running job: 2 Current Burst: 4 WT: 20 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 40
-==============================================
-Ready Queue: 7 9 3 6 5 4 1 0 2 
-Running job: 8 Current Burst: 8 WT: 26 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 50
-==============================================
-Ready Queue: 9 3 6 5 4 1 0 2 8 
-Running job: 7 Current Burst: 6 WT: 41 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 60
-==============================================
-Ready Queue: 5 4 1 0 2 8 
-Running job: 6 Current Burst: 0 WT: 45 RT: 4
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 3 WT: 45
-==============================================
-Taking Snap at time: 70
-==============================================
-Ready Queue: 0 2 8 7 
-Running job: 1 Current Burst: 4 WT: 57 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 80
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 0 WT: 63 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 90
-==============================================
-Ready Queue: NOTHING
+<<<<<<< HEAD
 Running job: 7 Current Burst: 1 WT: 61 RT: 15
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
@@ -509,3 +399,61 @@ PID         TURNAROUND TIME   PRIORITY
 AVERAGE TURNAROUND TIME: 43
 **************************************PRIORITYENDED**************************
 The best algorithm for the data set is SJR with a average turnaround time of 39
+=======
+Running job: 6 Current Burst: 0 WT: 26 RT: 5
+IO Queue: 1 4 
+IO job: 0 Current Burst: 2 WT: 26
+==============================================
+Taking Snap at time: 50
+==============================================
+Ready Queue: 2 9 0 1 4 
+Running job: 8 Current Burst: 9 WT: 32 RT: 6
+IO Queue: NOTHING!
+IO job: 7 Current Burst: 6 WT: 32
+==============================================
+Taking Snap at time: 60
+==============================================
+Ready Queue: 0 1 4 7 8 
+Running job: 9 Current Burst: 0 WT: 13 RT: 3
+IO Queue: NOTHING!
+IO job: 2 Current Burst: 0 WT: 13
+==============================================
+Taking Snap at time: 70
+==============================================
+Ready Queue: 4 7 8 2 
+Running job: 1 Current Burst: 0 WT: 45 RT: 8
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 80
+==============================================
+Ready Queue: 8 2 
+Running job: 7 Current Burst: 6 WT: 51 RT: 12
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Final Report
+PID         WAIT TIME
+3               26
+6               25
+5               24
+9               12
+0               38
+1               44
+4               51
+7               50
+8               58
+AVERAGE WAITING TIME: 36
+PID         TURNAROUND TIME
+3               31
+6               31
+5               32
+9               16
+0               50
+1               54
+4               61
+7               68
+8               73
+AVERAGE TURNAROUND TIME: 46
+**************************************MFQ ENDED**************************
+>>>>>>> 092797be11b520aa68c971929576d991562d4649
