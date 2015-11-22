@@ -22,7 +22,7 @@ namespace Scheduler
 			IO_Job = new Process (-1, 0, 0, 0,0);
 			Final_List = new Queue<Process> ();
 			//StreamWriter output = new StreamWriter ("../../output.txt");
-			simulate (1, output);
+			simulate (10, output);
 		}
 
 	
