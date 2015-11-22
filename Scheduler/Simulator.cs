@@ -40,8 +40,12 @@ namespace Scheduler
 					sim [i++] = new SJF (new ProcessList(fileName),output);
 					sim [i++] = new SJR (new ProcessList(fileName),output);
 					sim [i++] = new RR (new ProcessList(fileName),output); 
+<<<<<<< HEAD
 
 					sim[i++] = new Priority(new ProcessList(fileName),output);
+=======
+                    sim [i++] = new Priority(new ProcessList(fileName),output);
+>>>>>>> b031e9d893a0eb5f419eb22541f5e3a1e28d720c
 					sim [i++] = new MFQ (new ProcessList(fileName), output); 
 
 
