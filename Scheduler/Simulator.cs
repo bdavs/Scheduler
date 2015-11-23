@@ -40,21 +40,16 @@ namespace Scheduler
 					sim [i++] = new SJF (new ProcessList(fileName),output);
 					sim [i++] = new SJR (new ProcessList(fileName),output);
 					sim [i++] = new RR (new ProcessList(fileName),output); 
-<<<<<<< HEAD
-
-					sim[i++] = new Priority(new ProcessList(fileName),output);
-=======
                     sim [i++] = new Priority(new ProcessList(fileName),output);
->>>>>>> b031e9d893a0eb5f419eb22541f5e3a1e28d720c
 					sim [i++] = new MFQ (new ProcessList(fileName), output); 
 
 
 				}
 				int j; 
-				output.WriteLine ("ALGORITHM        AVERAGE TURNAROUND TIME");
+				output.WriteLine ("ALGORITHM     AVERAGE TURNAROUND TIME");
 				for(j =0 ; j < 6; j++){
 					try{
-						output.WriteLine (sim[j].GetType ().Name+"                "+sim[j].Average_TurnAround);
+						output.WriteLine ("{0,9}{1,7}",sim[j].GetType ().Name,sim[j].Average_TurnAround);
 						if(sim[j].Average_TurnAround < Lowest)
 							Lowest = sim[j].Average_TurnAround;
 					}catch(NullReferenceException){
