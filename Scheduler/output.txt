@@ -1,136 +1,82 @@
+===================================
+Quantum = 2
+===================================
+PID: 0
+CPU Burst 1: 5
+CPU Burst 2: 5
+IO Burst : 4
+Priority: 2
+Period: 1
+===================================
+PID: 1
+CPU Burst 1: 4
+CPU Burst 2: 4
+IO Burst : 2
+Priority: 1
+Period: 1
+===================================
+PID: 2
+CPU Burst 1: 12
+CPU Burst 2: 0
+IO Burst : 0
+Priority: 5
+Period: 1
+===================================
+PID: 3
+CPU Burst 1: 1
+CPU Burst 2: 1
+IO Burst : 4
+Priority: 4
+Period: 1
+===================================
+PID: 4
+CPU Burst 1: 4
+CPU Burst 2: 4
+IO Burst : 3
+Priority: 0
+Period: 1
+===================================
+PID: 5
+CPU Burst 1: 3
+CPU Burst 2: 3
+IO Burst : 4
+Priority: 2
+Period: 1
+===================================
+PID: 6
+CPU Burst 1: 4
+CPU Burst 2: 0
+IO Burst : 0
+Priority: 5
+Period: 1
+===================================
+PID: 7
+CPU Burst 1: 8
+CPU Burst 2: 8
+IO Burst : 7
+Priority: 5
+Period: 1
+===================================
+PID: 8
+CPU Burst 1: 14
+CPU Burst 2: 0
+IO Burst : 0
+Priority: 1
+Period: 1
+===================================
+PID: 9
+CPU Burst 1: 1
+CPU Burst 2: 1
+IO Burst : 10
+Priority: 1
+Period: 1
 **************************************FCFS STARTED**************************
-Taking Snap at time: 1
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 9 
-Running job: 0 Current Burst: 4 WT: 0 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 2
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 9 
-Running job: 0 Current Burst: 3 WT: 0 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 3
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 9 
-Running job: 0 Current Burst: 2 WT: 0 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 4
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 9 
-Running job: 0 Current Burst: 1 WT: 0 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 5
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 9 
-Running job: 1 Current Burst: 4 WT: 4 RT: 0
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 4 WT: 4
-==============================================
-Taking Snap at time: 6
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 9 
-Running job: 1 Current Burst: 3 WT: 4 RT: 1
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 3 WT: 4
-==============================================
-Taking Snap at time: 7
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 9 
-Running job: 1 Current Burst: 2 WT: 4 RT: 2
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 2 WT: 4
-==============================================
-Taking Snap at time: 8
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 9 
-Running job: 1 Current Burst: 1 WT: 4 RT: 3
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 1 WT: 4
-==============================================
-Taking Snap at time: 9
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 
-Running job: 2 Current Burst: 12 WT: 7 RT: 0
-IO Queue: NOTHING!
-IO job: 1 Current Burst: 2 WT: 7
-==============================================
 Taking Snap at time: 10
 ==============================================
 Ready Queue: 3 4 5 6 7 8 9 0 
 Running job: 2 Current Burst: 11 WT: 7 RT: 1
 IO Queue: NOTHING!
 IO job: 1 Current Burst: 1 WT: 7
-==============================================
-Taking Snap at time: 11
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 10 WT: 7 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 12
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 9 WT: 7 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 13
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 8 WT: 7 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 14
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 7 WT: 7 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 15
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 6 WT: 7 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 16
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 5 WT: 7 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 17
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 4 WT: 7 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 18
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 3 WT: 7 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 19
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 0 1 
-Running job: 2 Current Burst: 2 WT: 7 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 20
 ==============================================
@@ -139,69 +85,6 @@ Running job: 2 Current Burst: 1 WT: 7 RT: 11
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 21
-==============================================
-Ready Queue: 4 5 6 7 8 9 0 1 
-Running job: 3 Current Burst: 1 WT: 18 RT: 0
-IO Queue: NOTHING!
-IO job: 2 Current Burst: 0 WT: 18
-==============================================
-Taking Snap at time: 22
-==============================================
-Ready Queue: 5 6 7 8 9 0 1 2 
-Running job: 4 Current Burst: 4 WT: 18 RT: 0
-IO Queue: NOTHING!
-IO job: 3 Current Burst: 4 WT: 18
-==============================================
-Taking Snap at time: 23
-==============================================
-Ready Queue: 5 6 7 8 9 0 1 2 
-Running job: 4 Current Burst: 3 WT: 18 RT: 1
-IO Queue: NOTHING!
-IO job: 3 Current Burst: 3 WT: 18
-==============================================
-Taking Snap at time: 24
-==============================================
-Ready Queue: 5 6 7 8 9 0 1 2 
-Running job: 4 Current Burst: 2 WT: 18 RT: 2
-IO Queue: NOTHING!
-IO job: 3 Current Burst: 2 WT: 18
-==============================================
-Taking Snap at time: 25
-==============================================
-Ready Queue: 5 6 7 8 9 0 1 2 
-Running job: 4 Current Burst: 1 WT: 18 RT: 3
-IO Queue: NOTHING!
-IO job: 3 Current Burst: 1 WT: 18
-==============================================
-Taking Snap at time: 26
-==============================================
-Ready Queue: 6 7 8 9 0 1 2 3 
-Running job: 5 Current Burst: 3 WT: 21 RT: 0
-IO Queue: NOTHING!
-IO job: 4 Current Burst: 3 WT: 21
-==============================================
-Taking Snap at time: 27
-==============================================
-Ready Queue: 6 7 8 9 0 1 2 3 
-Running job: 5 Current Burst: 2 WT: 21 RT: 1
-IO Queue: NOTHING!
-IO job: 4 Current Burst: 2 WT: 21
-==============================================
-Taking Snap at time: 28
-==============================================
-Ready Queue: 6 7 8 9 0 1 2 3 
-Running job: 5 Current Burst: 1 WT: 21 RT: 2
-IO Queue: NOTHING!
-IO job: 4 Current Burst: 1 WT: 21
-==============================================
-Taking Snap at time: 29
-==============================================
-Ready Queue: 7 8 9 0 1 2 3 4 
-Running job: 6 Current Burst: 4 WT: 23 RT: 0
-IO Queue: NOTHING!
-IO job: 5 Current Burst: 4 WT: 23
-==============================================
 Taking Snap at time: 30
 ==============================================
 Ready Queue: 7 8 9 0 1 2 3 4 
@@ -209,136 +92,10 @@ Running job: 6 Current Burst: 3 WT: 23 RT: 1
 IO Queue: NOTHING!
 IO job: 5 Current Burst: 3 WT: 23
 ==============================================
-Taking Snap at time: 31
-==============================================
-Ready Queue: 7 8 9 0 1 2 3 4 
-Running job: 6 Current Burst: 2 WT: 23 RT: 2
-IO Queue: NOTHING!
-IO job: 5 Current Burst: 2 WT: 23
-==============================================
-Taking Snap at time: 32
-==============================================
-Ready Queue: 7 8 9 0 1 2 3 4 
-Running job: 6 Current Burst: 1 WT: 23 RT: 3
-IO Queue: NOTHING!
-IO job: 5 Current Burst: 1 WT: 23
-==============================================
-Taking Snap at time: 33
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 
-Running job: 7 Current Burst: 8 WT: 26 RT: 0
-IO Queue: NOTHING!
-IO job: 6 Current Burst: 0 WT: 26
-==============================================
-Taking Snap at time: 34
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 7 WT: 26 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 35
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 6 WT: 26 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 36
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 5 WT: 26 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 37
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 4 WT: 26 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 38
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 3 WT: 26 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 39
-==============================================
-Ready Queue: 8 9 0 1 2 3 4 5 6 
-Running job: 7 Current Burst: 2 WT: 26 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Taking Snap at time: 40
 ==============================================
 Ready Queue: 8 9 0 1 2 3 4 5 6 
 Running job: 7 Current Burst: 1 WT: 26 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 41
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 14 WT: 33 RT: 0
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 7 WT: 33
-==============================================
-Taking Snap at time: 42
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 13 WT: 33 RT: 1
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 6 WT: 33
-==============================================
-Taking Snap at time: 43
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 12 WT: 33 RT: 2
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 5 WT: 33
-==============================================
-Taking Snap at time: 44
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 11 WT: 33 RT: 3
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 4 WT: 33
-==============================================
-Taking Snap at time: 45
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 10 WT: 33 RT: 4
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 3 WT: 33
-==============================================
-Taking Snap at time: 46
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 9 WT: 33 RT: 5
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 2 WT: 33
-==============================================
-Taking Snap at time: 47
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 
-Running job: 8 Current Burst: 8 WT: 33 RT: 6
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 1 WT: 33
-==============================================
-Taking Snap at time: 48
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 7 WT: 33 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 49
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 6 WT: 33 RT: 8
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -349,69 +106,6 @@ Running job: 8 Current Burst: 5 WT: 33 RT: 9
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 51
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 4 WT: 33 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 52
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 3 WT: 33 RT: 11
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 53
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 2 WT: 33 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 54
-==============================================
-Ready Queue: 9 0 1 2 3 4 5 6 7 
-Running job: 8 Current Burst: 1 WT: 33 RT: 13
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 55
-==============================================
-Ready Queue: 0 1 2 3 4 5 6 7 
-Running job: 9 Current Burst: 1 WT: 46 RT: 0
-IO Queue: NOTHING!
-IO job: 8 Current Burst: 0 WT: 46
-==============================================
-Taking Snap at time: 56
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 5 WT: 48 RT: 5
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 10 WT: 48
-==============================================
-Taking Snap at time: 57
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 4 WT: 48 RT: 6
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 9 WT: 48
-==============================================
-Taking Snap at time: 58
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 3 WT: 48 RT: 7
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 8 WT: 48
-==============================================
-Taking Snap at time: 59
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 2 WT: 48 RT: 8
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 7 WT: 48
-==============================================
 Taking Snap at time: 60
 ==============================================
 Ready Queue: 1 2 3 4 5 6 7 8 
@@ -419,136 +113,10 @@ Running job: 0 Current Burst: 1 WT: 48 RT: 9
 IO Queue: NOTHING!
 IO job: 9 Current Burst: 6 WT: 48
 ==============================================
-Taking Snap at time: 61
-==============================================
-Ready Queue: 1 2 3 4 5 6 7 8 
-Running job: 0 Current Burst: 0 WT: 48 RT: 10
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 5 WT: 48
-==============================================
-Taking Snap at time: 62
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 
-Running job: 1 Current Burst: 4 WT: 55 RT: 4
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 4 WT: 55
-==============================================
-Taking Snap at time: 63
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 
-Running job: 1 Current Burst: 3 WT: 55 RT: 5
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 3 WT: 55
-==============================================
-Taking Snap at time: 64
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 
-Running job: 1 Current Burst: 2 WT: 55 RT: 6
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 2 WT: 55
-==============================================
-Taking Snap at time: 65
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 
-Running job: 1 Current Burst: 1 WT: 55 RT: 7
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 1 WT: 55
-==============================================
-Taking Snap at time: 66
-==============================================
-Ready Queue: 2 3 4 5 6 7 8 9 
-Running job: 1 Current Burst: 0 WT: 55 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 67
-==============================================
-Ready Queue: 3 4 5 6 7 8 9 
-Running job: 2 Current Burst: 0 WT: 52 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 68
-==============================================
-Ready Queue: 4 5 6 7 8 9 
-Running job: 3 Current Burst: 1 WT: 60 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 69
-==============================================
-Ready Queue: 4 5 6 7 8 9 
-Running job: 3 Current Burst: 0 WT: 60 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Taking Snap at time: 70
 ==============================================
 Ready Queue: 5 6 7 8 9 
 Running job: 4 Current Burst: 4 WT: 59 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 71
-==============================================
-Ready Queue: 5 6 7 8 9 
-Running job: 4 Current Burst: 3 WT: 59 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 72
-==============================================
-Ready Queue: 5 6 7 8 9 
-Running job: 4 Current Burst: 2 WT: 59 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 73
-==============================================
-Ready Queue: 5 6 7 8 9 
-Running job: 4 Current Burst: 1 WT: 59 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 74
-==============================================
-Ready Queue: 5 6 7 8 9 
-Running job: 4 Current Burst: 0 WT: 59 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 75
-==============================================
-Ready Queue: 6 7 8 9 
-Running job: 5 Current Burst: 3 WT: 63 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 76
-==============================================
-Ready Queue: 6 7 8 9 
-Running job: 5 Current Burst: 2 WT: 63 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 77
-==============================================
-Ready Queue: 6 7 8 9 
-Running job: 5 Current Burst: 1 WT: 63 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 78
-==============================================
-Ready Queue: 6 7 8 9 
-Running job: 5 Current Burst: 0 WT: 63 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 79
-==============================================
-Ready Queue: 7 8 9 
-Running job: 6 Current Burst: 0 WT: 68 RT: 4
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -559,80 +127,10 @@ Running job: 7 Current Burst: 8 WT: 58 RT: 8
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 81
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 7 WT: 58 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 82
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 6 WT: 58 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 83
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 5 WT: 58 RT: 11
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 84
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 4 WT: 58 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 85
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 3 WT: 58 RT: 13
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 86
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 2 WT: 58 RT: 14
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 87
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 1 WT: 58 RT: 15
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 88
-==============================================
-Ready Queue: 8 9 
-Running job: 7 Current Burst: 0 WT: 58 RT: 16
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 89
-==============================================
-Ready Queue: 9 
-Running job: 8 Current Burst: 0 WT: 66 RT: 14
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Taking Snap at time: 90
 ==============================================
 Ready Queue: NOTHING
 Running job: 9 Current Burst: 1 WT: 70 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 91
-==============================================
-Ready Queue: NOTHING
-Running job: 9 Current Burst: 0 WT: 70 RT: 2
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -663,556 +161,52 @@ PID         TURNAROUND TIME
 AVERAGE TURNAROUND TIME: 67
 **************************************FCFS ENDED**************************
 **************************************SJF STARTED**************************
-Taking Snap at time: 1
-==============================================
-Ready Queue: 6 5 1 4 0 2 8 7 
-Running job: 9 Current Burst: 1 WT: 1 RT: 0
-IO Queue: NOTHING!
-IO job: 3 Current Burst: 4 WT: 1
-==============================================
-Taking Snap at time: 2
-==============================================
-Ready Queue: 5 1 4 0 2 8 7 
-Running job: 6 Current Burst: 4 WT: 1 RT: 0
-IO Queue: 9 
-IO job: 3 Current Burst: 3 WT: 1
-==============================================
-Taking Snap at time: 3
-==============================================
-Ready Queue: 5 1 4 0 2 8 7 
-Running job: 6 Current Burst: 3 WT: 1 RT: 1
-IO Queue: 9 
-IO job: 3 Current Burst: 2 WT: 1
-==============================================
-Taking Snap at time: 4
-==============================================
-Ready Queue: 5 1 4 0 2 8 7 
-Running job: 6 Current Burst: 2 WT: 1 RT: 2
-IO Queue: 9 
-IO job: 3 Current Burst: 1 WT: 1
-==============================================
-Taking Snap at time: 5
-==============================================
-Ready Queue: 5 1 4 0 2 8 7 3 
-Running job: 6 Current Burst: 1 WT: 1 RT: 3
-IO Queue: NOTHING!
-IO job: 9 Current Burst: 10 WT: 1
-==============================================
-Taking Snap at time: 6
-==============================================
-Ready Queue: 1 4 0 2 8 7 3 
-Running job: 5 Current Burst: 3 WT: 1 RT: 0
-IO Queue: 6 
-IO job: 9 Current Burst: 9 WT: 1
-==============================================
-Taking Snap at time: 7
-==============================================
-Ready Queue: 1 4 0 2 8 7 3 
-Running job: 5 Current Burst: 2 WT: 1 RT: 1
-IO Queue: 6 
-IO job: 9 Current Burst: 8 WT: 1
-==============================================
-Taking Snap at time: 8
-==============================================
-Ready Queue: 1 4 0 2 8 7 3 
-Running job: 5 Current Burst: 1 WT: 1 RT: 2
-IO Queue: 6 
-IO job: 9 Current Burst: 7 WT: 1
-==============================================
-Taking Snap at time: 9
-==============================================
-Ready Queue: 4 0 2 8 7 3 
-Running job: 1 Current Burst: 4 WT: 8 RT: 0
-IO Queue: 6 5 
-IO job: 9 Current Burst: 6 WT: 8
-==============================================
 Taking Snap at time: 10
 ==============================================
-Ready Queue: 4 0 2 8 7 3 
-Running job: 1 Current Burst: 3 WT: 8 RT: 1
-IO Queue: 6 5 
-IO job: 9 Current Burst: 5 WT: 8
-==============================================
-Taking Snap at time: 11
-==============================================
-Ready Queue: 4 0 2 8 7 3 
-Running job: 1 Current Burst: 2 WT: 8 RT: 2
-IO Queue: 6 5 
-IO job: 9 Current Burst: 4 WT: 8
-==============================================
-Taking Snap at time: 12
-==============================================
-Ready Queue: 4 0 2 8 7 3 
-Running job: 1 Current Burst: 1 WT: 8 RT: 3
-IO Queue: 6 5 
-IO job: 9 Current Burst: 3 WT: 8
-==============================================
-Taking Snap at time: 13
-==============================================
-Ready Queue: 0 2 8 7 3 
-Running job: 4 Current Burst: 4 WT: 9 RT: 0
-IO Queue: 6 5 1 
-IO job: 9 Current Burst: 2 WT: 9
-==============================================
-Taking Snap at time: 14
-==============================================
-Ready Queue: 0 2 8 7 3 
-Running job: 4 Current Burst: 3 WT: 9 RT: 1
-IO Queue: 6 5 1 
-IO job: 9 Current Burst: 1 WT: 9
-==============================================
-Taking Snap at time: 15
-==============================================
-Ready Queue: 0 2 8 7 3 9 
-Running job: 4 Current Burst: 2 WT: 9 RT: 2
-IO Queue: 5 1 
-IO job: 6 Current Burst: 0 WT: 9
-==============================================
-Taking Snap at time: 16
-==============================================
-Ready Queue: 0 2 8 7 3 9 6 
-Running job: 4 Current Burst: 1 WT: 9 RT: 3
-IO Queue: 1 
-IO job: 5 Current Burst: 4 WT: 9
-==============================================
-Taking Snap at time: 17
-==============================================
-Ready Queue: 2 8 7 3 9 6 
-Running job: 0 Current Burst: 5 WT: 17 RT: 0
-IO Queue: 1 4 
-IO job: 5 Current Burst: 3 WT: 17
-==============================================
-Taking Snap at time: 18
-==============================================
-Ready Queue: 2 8 7 3 9 6 
-Running job: 0 Current Burst: 4 WT: 17 RT: 1
-IO Queue: 1 4 
-IO job: 5 Current Burst: 2 WT: 17
-==============================================
-Taking Snap at time: 19
-==============================================
-Ready Queue: 2 8 7 3 9 6 
-Running job: 0 Current Burst: 3 WT: 17 RT: 2
-IO Queue: 1 4 
-IO job: 5 Current Burst: 1 WT: 17
+Ready Queue: 1 0 2 8 7 
+Running job: 4 Current Burst: 3 WT: 5 RT: 1
+IO Queue: 3 6 5 
+IO job: 9 Current Burst: 1 WT: 5
 ==============================================
 Taking Snap at time: 20
 ==============================================
-Ready Queue: 2 8 7 3 9 6 5 
+Ready Queue: 2 8 7 9 3 6 5 
 Running job: 0 Current Burst: 2 WT: 17 RT: 3
-IO Queue: 4 
-IO job: 1 Current Burst: 2 WT: 17
-==============================================
-Taking Snap at time: 21
-==============================================
-Ready Queue: 2 8 7 3 9 6 5 
-Running job: 0 Current Burst: 1 WT: 17 RT: 4
-IO Queue: 4 
-IO job: 1 Current Burst: 1 WT: 17
-==============================================
-Taking Snap at time: 22
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 
-Running job: 2 Current Burst: 12 WT: 20 RT: 0
-IO Queue: 0 
-IO job: 4 Current Burst: 3 WT: 20
-==============================================
-Taking Snap at time: 23
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 
-Running job: 2 Current Burst: 11 WT: 20 RT: 1
-IO Queue: 0 
-IO job: 4 Current Burst: 2 WT: 20
-==============================================
-Taking Snap at time: 24
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 
-Running job: 2 Current Burst: 10 WT: 20 RT: 2
-IO Queue: 0 
-IO job: 4 Current Burst: 1 WT: 20
-==============================================
-Taking Snap at time: 25
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 
-Running job: 2 Current Burst: 9 WT: 20 RT: 3
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 4 WT: 20
-==============================================
-Taking Snap at time: 26
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 
-Running job: 2 Current Burst: 8 WT: 20 RT: 4
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 3 WT: 20
-==============================================
-Taking Snap at time: 27
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 
-Running job: 2 Current Burst: 7 WT: 20 RT: 5
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 2 WT: 20
-==============================================
-Taking Snap at time: 28
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 
-Running job: 2 Current Burst: 6 WT: 20 RT: 6
-IO Queue: NOTHING!
-IO job: 0 Current Burst: 1 WT: 20
-==============================================
-Taking Snap at time: 29
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 0 
-Running job: 2 Current Burst: 5 WT: 20 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
+IO Queue: 1 
+IO job: 4 Current Burst: 3 WT: 17
 ==============================================
 Taking Snap at time: 30
 ==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 0 
+Ready Queue: 8 7 9 3 6 5 4 1 0 
 Running job: 2 Current Burst: 4 WT: 20 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 31
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 0 
-Running job: 2 Current Burst: 3 WT: 20 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 32
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 0 
-Running job: 2 Current Burst: 2 WT: 20 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 33
-==============================================
-Ready Queue: 8 7 3 9 6 5 1 4 0 
-Running job: 2 Current Burst: 1 WT: 20 RT: 11
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 34
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 
-Running job: 8 Current Burst: 14 WT: 26 RT: 0
-IO Queue: NOTHING!
-IO job: 2 Current Burst: 0 WT: 26
-==============================================
-Taking Snap at time: 35
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 13 WT: 26 RT: 1
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 36
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 12 WT: 26 RT: 2
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 37
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 11 WT: 26 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 38
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 10 WT: 26 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 39
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 9 WT: 26 RT: 5
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 40
 ==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
+Ready Queue: 7 9 3 6 5 4 1 0 2 
 Running job: 8 Current Burst: 8 WT: 26 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 41
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 7 WT: 26 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 42
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 6 WT: 26 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 43
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 5 WT: 26 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 44
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 4 WT: 26 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 45
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 3 WT: 26 RT: 11
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 46
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 2 WT: 26 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 47
-==============================================
-Ready Queue: 7 3 9 6 5 1 4 0 2 
-Running job: 8 Current Burst: 1 WT: 26 RT: 13
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 48
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 
-Running job: 7 Current Burst: 8 WT: 41 RT: 0
-IO Queue: NOTHING!
-IO job: 8 Current Burst: 0 WT: 41
-==============================================
-Taking Snap at time: 49
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 7 WT: 41 RT: 1
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 50
 ==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
+Ready Queue: 9 3 6 5 4 1 0 2 8 
 Running job: 7 Current Burst: 6 WT: 41 RT: 2
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 51
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 5 WT: 41 RT: 3
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 52
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 4 WT: 41 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 53
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 3 WT: 41 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 54
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 2 WT: 41 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 55
-==============================================
-Ready Queue: 3 9 6 5 1 4 0 2 8 
-Running job: 7 Current Burst: 1 WT: 41 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 56
-==============================================
-Ready Queue: 9 6 5 1 4 0 2 8 
-Running job: 3 Current Burst: 1 WT: 52 RT: 1
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 7 WT: 52
-==============================================
-Taking Snap at time: 57
-==============================================
-Ready Queue: 9 6 5 1 4 0 2 8 
-Running job: 3 Current Burst: 0 WT: 52 RT: 2
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 6 WT: 52
-==============================================
-Taking Snap at time: 58
-==============================================
-Ready Queue: 6 5 1 4 0 2 8 
-Running job: 9 Current Burst: 1 WT: 44 RT: 1
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 5 WT: 44
-==============================================
-Taking Snap at time: 59
-==============================================
-Ready Queue: 6 5 1 4 0 2 8 
-Running job: 9 Current Burst: 0 WT: 44 RT: 2
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 4 WT: 44
-==============================================
 Taking Snap at time: 60
 ==============================================
-Ready Queue: 5 1 4 0 2 8 
+Ready Queue: 5 4 1 0 2 8 
 Running job: 6 Current Burst: 0 WT: 45 RT: 4
 IO Queue: NOTHING!
 IO job: 7 Current Burst: 3 WT: 45
 ==============================================
-Taking Snap at time: 61
-==============================================
-Ready Queue: 1 4 0 2 8 
-Running job: 5 Current Burst: 3 WT: 42 RT: 3
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 2 WT: 42
-==============================================
-Taking Snap at time: 62
-==============================================
-Ready Queue: 1 4 0 2 8 
-Running job: 5 Current Burst: 2 WT: 42 RT: 4
-IO Queue: NOTHING!
-IO job: 7 Current Burst: 1 WT: 42
-==============================================
-Taking Snap at time: 63
-==============================================
-Ready Queue: 1 4 0 2 8 7 
-Running job: 5 Current Burst: 1 WT: 42 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 64
-==============================================
-Ready Queue: 1 4 0 2 8 7 
-Running job: 5 Current Burst: 0 WT: 42 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 65
-==============================================
-Ready Queue: 4 0 2 8 7 
-Running job: 1 Current Burst: 4 WT: 51 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 66
-==============================================
-Ready Queue: 4 0 2 8 7 
-Running job: 1 Current Burst: 3 WT: 51 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 67
-==============================================
-Ready Queue: 4 0 2 8 7 
-Running job: 1 Current Burst: 2 WT: 51 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 68
-==============================================
-Ready Queue: 4 0 2 8 7 
-Running job: 1 Current Burst: 1 WT: 51 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 69
-==============================================
-Ready Queue: 4 0 2 8 7 
-Running job: 1 Current Burst: 0 WT: 51 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Taking Snap at time: 70
 ==============================================
 Ready Queue: 0 2 8 7 
-Running job: 4 Current Burst: 4 WT: 54 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 71
-==============================================
-Ready Queue: 0 2 8 7 
-Running job: 4 Current Burst: 3 WT: 54 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 72
-==============================================
-Ready Queue: 0 2 8 7 
-Running job: 4 Current Burst: 2 WT: 54 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 73
-==============================================
-Ready Queue: 0 2 8 7 
-Running job: 4 Current Burst: 1 WT: 54 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 74
-==============================================
-Ready Queue: 0 2 8 7 
-Running job: 4 Current Burst: 0 WT: 54 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 75
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 5 WT: 63 RT: 5
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 76
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 4 WT: 63 RT: 6
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 77
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 3 WT: 63 RT: 7
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 78
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 2 WT: 63 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 79
-==============================================
-Ready Queue: 2 8 7 
-Running job: 0 Current Burst: 1 WT: 63 RT: 9
+Running job: 1 Current Burst: 4 WT: 57 RT: 4
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -1223,69 +217,6 @@ Running job: 0 Current Burst: 0 WT: 63 RT: 10
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 81
-==============================================
-Ready Queue: 8 7 
-Running job: 2 Current Burst: 0 WT: 66 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 82
-==============================================
-Ready Queue: 7 
-Running job: 8 Current Burst: 0 WT: 59 RT: 14
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 83
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 8 WT: 61 RT: 8
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 84
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 7 WT: 61 RT: 9
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 85
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 6 WT: 61 RT: 10
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 86
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 5 WT: 61 RT: 11
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 87
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 4 WT: 61 RT: 12
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 88
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 3 WT: 61 RT: 13
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
-Taking Snap at time: 89
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 2 WT: 61 RT: 14
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Taking Snap at time: 90
 ==============================================
 Ready Queue: NOTHING
@@ -1293,36 +224,287 @@ Running job: 7 Current Burst: 1 WT: 61 RT: 15
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
-Taking Snap at time: 91
-==============================================
-Ready Queue: NOTHING
-Running job: 7 Current Burst: 0 WT: 61 RT: 16
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
-==============================================
 Final Report
 PID         WAIT TIME
-3               51
-9               43
+9               45
+3               43
 6               44
 5               41
-1               50
-4               53
+4               46
+1               56
 0               62
 2               65
 8               58
 7               60
 AVERAGE WAITING TIME: 52
 PID         TURNAROUND TIME
-3               53
-9               45
+9               47
+3               45
 6               48
 5               47
-1               58
-4               61
+4               54
+1               64
 0               72
 2               77
 8               72
 7               76
 AVERAGE TURNAROUND TIME: 60
 **************************************SJF ENDED**************************
+**************************************SJR STARTED**************************
+Taking Snap at time: 10
+==============================================
+Ready Queue: 6 0 7 2 8 
+Running job: 4 Current Burst: 3 WT: 5 RT: 1
+IO Queue: 3 5 1 
+IO job: 9 Current Burst: 1 WT: 5
+==============================================
+Taking Snap at time: 20
+==============================================
+Ready Queue: 5 0 7 2 8 
+Running job: 6 Current Burst: 1 WT: 10 RT: 3
+IO Queue: 4 
+IO job: 1 Current Burst: 1 WT: 10
+==============================================
+Taking Snap at time: 30
+==============================================
+Ready Queue: 1 0 7 2 8 
+Running job: 4 Current Burst: 0 WT: 8 RT: 8
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 40
+==============================================
+Ready Queue: 7 2 8 
+Running job: 0 Current Burst: 1 WT: 35 RT: 4
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 50
+==============================================
+Ready Queue: 2 8 
+Running job: 0 Current Burst: 4 WT: 40 RT: 6
+IO Queue: NOTHING!
+IO job: 7 Current Burst: 6 WT: 40
+==============================================
+Taking Snap at time: 60
+==============================================
+Ready Queue: 2 8 
+Running job: 7 Current Burst: 4 WT: 35 RT: 12
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 70
+==============================================
+Ready Queue: 8 
+Running job: 2 Current Burst: 6 WT: 60 RT: 6
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 80
+==============================================
+Ready Queue: NOTHING
+Running job: 8 Current Burst: 11 WT: 68 RT: 3
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 90
+==============================================
+Ready Queue: NOTHING
+Running job: 8 Current Burst: 1 WT: 68 RT: 13
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Final Report
+PID         WAIT TIME
+0               39
+1               12
+2               60
+3               1
+4               7
+5               3
+6               10
+7               34
+8               67
+8               67
+8               67
+9               0
+AVERAGE WAITING TIME: 30
+PID         TURNAROUND TIME
+0               49
+1               20
+2               72
+3               3
+4               15
+5               9
+6               14
+7               50
+8               80
+8               80
+8               80
+9               2
+AVERAGE TURNAROUND TIME: 39
+**************************************SJR ENDED**************************
+**************************************RR STARTED**************************
+Taking Snap at time: 10
+==============================================
+Ready Queue: 6 7 8 9 0 1 2 4 
+Running job: 5 Current Burst: 2 WT: 11 RT: 2
+IO Queue: NOTHING!
+IO job: 3 Current Burst: 2 WT: 11
+==============================================
+Taking Snap at time: 20
+==============================================
+Ready Queue: 1 2 4 5 3 6 7 8 
+Running job: 0 Current Burst: 1 WT: 19 RT: 5
+IO Queue: NOTHING!
+IO job: 9 Current Burst: 9 WT: 19
+==============================================
+Taking Snap at time: 30
+==============================================
+Ready Queue: 7 8 0 2 9 
+Running job: 6 Current Burst: 0 WT: 31 RT: 5
+IO Queue: 4 5 
+IO job: 1 Current Burst: 2 WT: 31
+==============================================
+Taking Snap at time: 40
+==============================================
+Ready Queue: 1 8 4 2 
+Running job: 7 Current Burst: 2 WT: 41 RT: 7
+IO Queue: 0 
+IO job: 5 Current Burst: 1 WT: 41
+==============================================
+Taking Snap at time: 50
+==============================================
+Ready Queue: 5 1 8 4 0 2 
+Running job: 7 Current Burst: 0 WT: 49 RT: 9
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 60
+==============================================
+Ready Queue: 2 5 8 7 
+Running job: 0 Current Burst: 0 WT: 46 RT: 9
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 70
+==============================================
+Ready Queue: 8 7 0 
+Running job: 2 Current Burst: 1 WT: 67 RT: 12
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Final Report
+PID         WAIT TIME
+3               22
+6               30
+9               26
+1               39
+4               42
+5               44
+2               66
+0               59
+8               72
+AVERAGE WAITING TIME: 44
+PID         TURNAROUND TIME
+3               27
+6               35
+9               31
+1               48
+4               51
+5               53
+2               79
+0               72
+8               87
+AVERAGE TURNAROUND TIME: 53
+**************************************RR ENDED**************************
+**************************************PRIORITY STARTED**************************
+Taking Snap at time: 10
+==============================================
+Ready Queue: 9 8 1 5 0 3 2 6 7 
+Running job: 4 Current Burst: 1 WT: 1 RT: 7
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 20
+==============================================
+Ready Queue: 1 0 5 3 2 6 7 
+Running job: 8 Current Burst: 4 WT: 6 RT: 10
+IO Queue: NOTHING!
+IO job: 9 Current Burst: 3 WT: 6
+==============================================
+Taking Snap at time: 30
+==============================================
+Ready Queue: 0 5 3 2 6 7 1 
+Running job: 8 Current Burst: 0 WT: 11 RT: 14
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 40
+==============================================
+Ready Queue: 5 3 2 6 7 
+Running job: 0 Current Burst: 1 WT: 35 RT: 4
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 50
+==============================================
+Ready Queue: 5 6 7 2 
+Running job: 0 Current Burst: 0 WT: 36 RT: 10
+IO Queue: NOTHING!
+IO job: 3 Current Burst: 3 WT: 36
+==============================================
+Taking Snap at time: 60
+==============================================
+Ready Queue: 7 2 
+Running job: 6 Current Burst: 1 WT: 50 RT: 3
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 70
+==============================================
+Ready Queue: 6 
+Running job: 2 Current Burst: 11 WT: 67 RT: 1
+IO Queue: NOTHING!
+IO job: 7 Current Burst: 6 WT: 67
+==============================================
+Taking Snap at time: 80
+==============================================
+Ready Queue: 6 7 
+Running job: 2 Current Burst: 1 WT: 67 RT: 11
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Taking Snap at time: 90
+==============================================
+Ready Queue: 2 
+Running job: 7 Current Burst: 0 WT: 60 RT: 16
+IO Queue: NOTHING!
+IO Job: NO RUNNING JOB
+==============================================
+Final Report
+PID         WAIT TIME         PRIORITY
+0               35             2
+1               23             1
+2               75             5
+3               42             4
+4               0             0
+5               37             2
+6               69             5
+7               59             5
+8               10             1
+9               7             1
+AVERAGE WAITING TIME: 35
+PID         TURNAROUND TIME   PRIORITY
+0               45             2
+1               31             1
+2               87             5
+3               44             4
+4               8             0
+5               43             2
+6               73             5
+7               75             5
+8               24             1
+9               9             1
+AVERAGE TURNAROUND TIME: 43
+**************************************PRIORITYENDED**************************

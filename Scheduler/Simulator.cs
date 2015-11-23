@@ -10,20 +10,21 @@ namespace Scheduler
 		StreamWriter output;
 		public Simulator()
 		{
+			output = new StreamWriter ("../../output.txt");
 			try {
 				ProcessList p = new ProcessList (fileName);
 				if (debug) {
 					//Echo processes to console
-					Console.WriteLine ("===================================");
-					Console.WriteLine ("Quantum = " + p.getQuantum ());
+					output.WriteLine ("===================================");
+					output.WriteLine ("Quantum = " + p.getQuantum ());
 					for (int loop = 0; loop < p.getNumberOfProcesses (); loop++) {
-						Console.WriteLine ("===================================");
-						Console.WriteLine ("PID: " + p.getProcess (loop).getPID ());
-						Console.WriteLine ("CPU Burst 1: " + p.getProcess (loop).getCPU_burst1 ());
-						Console.WriteLine ("CPU Burst 2: " + p.getProcess (loop).getCPU_burst2 ());
-						Console.WriteLine ("IO Burst : " + p.getProcess (loop).getIO_burst ());
-						Console.WriteLine ("Priority: " + p.getProcess (loop).getPriority ());
-						Console.WriteLine ("Period: " + p.getProcess (loop).getCurrentPeriod ());	
+						output.WriteLine ("===================================");
+						output.WriteLine ("PID: " + p.getProcess (loop).getPID ());
+						output.WriteLine ("CPU Burst 1: " + p.getProcess (loop).getCPU_burst1 ());
+						output.WriteLine ("CPU Burst 2: " + p.getProcess (loop).getCPU_burst2 ());
+						output.WriteLine ("IO Burst : " + p.getProcess (loop).getIO_burst ());
+						output.WriteLine ("Priority: " + p.getProcess (loop).getPriority ());
+						output.WriteLine ("Period: " + p.getProcess (loop).getCurrentPeriod ());	
 					}
 				}
 
@@ -31,12 +32,13 @@ namespace Scheduler
 				Scheduler[] sim = new Scheduler[7];
 				{
 					int i = 0;
-					output = new StreamWriter ("../../output.txt");
+
 					sim [i++] = new FCFS (new ProcessList(fileName),output); 
 					sim [i++] = new SJF (new ProcessList(fileName),output);
-					//sim [i++] = new RR (new ProcessList(fileName)); 
+					sim [i++] = new SJR (new ProcessList(fileName),output);
+					sim [i++] = new RR (new ProcessList(fileName),output); 
 
-					//sim[i++] = new Priority(new ProcessList(fileName));
+					sim[i++] = new Priority(new ProcessList(fileName),output);
 					//sim [i++] = new MFQ (new ProcessList(fileName)); 
 
 
@@ -49,8 +51,8 @@ namespace Scheduler
 				}
 
 			} catch (Exception e) {
-				Console.WriteLine ("Error trying to populate the process list: " + e.Message);
-				Console.WriteLine ("Program quitting");
+				output.WriteLine ("Error trying to populate the process list: " + e.Message);
+				output.WriteLine ("Program quitting");
 			}
 		}
 
