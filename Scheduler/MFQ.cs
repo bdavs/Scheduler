@@ -140,7 +140,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
-                    currentProcess.activePeriod--;
+                    currentProcess.activePeriod-=2;
                     Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue1.Count > 0) currentProcess = ReadyQueue1.Dequeue();
@@ -241,7 +241,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
-                    currentProcess.activePeriod--;
+                    currentProcess.activePeriod-=2;
                     Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue2.Count > 0) currentProcess = ReadyQueue2.Dequeue();

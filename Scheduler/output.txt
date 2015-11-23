@@ -594,14 +594,14 @@ PID         TURNAROUND TIME
 0               49
 1               53
 2               75
-3               28
+3               27
 4               60
-5               30
-6               29
+5               29
+6               28
 7               67
 8               73
 9               15
-AVERAGE TURNAROUND TIME: 47 CPU UTILIZATION: 111.3636
+AVERAGE TURNAROUND TIME: 47 CPU UTILIZATION: 107.9545
 **************************************MFQ ENDED**************************
 ALGORITHM     AVERAGE TURNAROUND TIME
      FCFS     67
