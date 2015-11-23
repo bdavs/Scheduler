@@ -11,7 +11,8 @@ namespace Scheduler
 		public Queue<Process> IOQueue = new Queue<Process>();
 		public Process currentProcess;
 		public Process currentIO;
-		public int time;
+
+        public int time;
 		List<Process> Final_List;
 
 		public RR(ProcessList processList, StreamWriter pa)
