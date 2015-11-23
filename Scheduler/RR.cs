@@ -51,20 +51,18 @@ namespace Scheduler
 					foreach (Process p in ReadyQueue) {
 						p.period++;
 					}
-					currentProcess.activePeriod++;
+					
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
 						IOQueue.Enqueue (currentProcess);
-						//pa.WriteLine ("into IO:"+ currentProcess.getPID ());
 						break;
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () == 0 && currentProcess.getCPU_burst2 () > 0) {
 						currentProcess.decrementCPUBurst2 ();
 					} else {
-						//Final_List.Enqueue (currentProcess);
 						break;
 					}
-
+                    currentProcess.activePeriod++;
 
 					//io processing
 					if (currentIO.getIO_burst () > 0) {
@@ -97,7 +95,9 @@ namespace Scheduler
 					IOQueue.Enqueue (currentProcess);
 					//pa.WriteLine ("into IO2:"+ currentProcess.getPID ());
 				} else if(currentProcess.getCPU_burst1 () == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0){
-					Final_List.Add (currentProcess);
+
+                    currentProcess.activePeriod--;
+                    Final_List.Add (currentProcess);
 				}
 				if (ReadyQueue.Count>0) currentProcess = ReadyQueue.Dequeue ();	
 

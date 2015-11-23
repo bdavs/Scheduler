@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Scheduler
 {
@@ -6,7 +7,12 @@ namespace Scheduler
 	{
 		public static void Main (string[] args)
 		{
-			new Simulator();
+            String input_file;
+            //String input_file = args[0];
+            //if ( == null) {
+                input_file = "../../input_file.txt";
+            //}
+            new Simulator(input_file);
 
 		}
 	}

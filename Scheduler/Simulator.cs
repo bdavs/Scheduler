@@ -4,12 +4,15 @@ namespace Scheduler
 {
 	public class Simulator
 	{
-		static String fileName = "../../input_file.txt";
+		
 		//static String output= "../../output.txt";
 		static bool debug = true;
 		StreamWriter output;
 		int Lowest;
-		public Simulator()
+    
+        
+
+		public Simulator(String fileName)
 		{
 			Lowest = 99999;
 			output = new StreamWriter ("../../output.txt");

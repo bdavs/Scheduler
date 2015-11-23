@@ -379,7 +379,7 @@ IO Job: NO RUNNING JOB
 Taking Snap at time: 60
 ==============================================
 Ready Queue: 2 5 8 7 
-Running job: 0 Current Burst: 0 WT: 46 RT: 9
+Running job: 0 Current Burst: 0 WT: 46 RT: 8
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -404,17 +404,17 @@ PID         WAIT TIME
 9               26
 AVERAGE WAITING TIME: 46
 PID         TURNAROUND TIME
-0               72
-1               48
-2               79
-3               27
-4               51
-5               53
-6               35
+0               69
+1               47
+2               78
+3               24
+4               50
+5               50
+6               34
 7               78
-8               87
-9               31
-AVERAGE TURNAROUND TIME: 56
+8               86
+9               28
+AVERAGE TURNAROUND TIME: 54
 **************************************RR ENDED**************************
 **************************************PRIORITY STARTED**************************
 Taking Snap at time: 10
@@ -607,7 +607,7 @@ ALGORITHM     AVERAGE TURNAROUND TIME
      FCFS     67
       SJF     60
       SJR     31
-       RR     56
+       RR     54
  Priority     43
       MFQ     49
 The best algorithm for the data set is SJR with a average turnaround time of 31
