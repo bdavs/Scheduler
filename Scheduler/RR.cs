@@ -102,7 +102,7 @@ namespace Scheduler
 				if (ReadyQueue.Count>0) currentProcess = ReadyQueue.Dequeue ();	
 
 			}
-			foreach (Process item in Final_List) item.period--;
+            Final_List.Add(currentProcess); foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
 			pa.WriteLine ("**************************************RR ENDED**************************");
 		}

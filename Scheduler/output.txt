@@ -163,42 +163,42 @@ AVERAGE TURNAROUND TIME: 67
 **************************************SJF STARTED**************************
 Taking Snap at time: 10
 ==============================================
-Ready Queue: 1 0 2 8 7 
-Running job: 4 Current Burst: 3 WT: 5 RT: 1
-IO Queue: 3 6 5 
-IO job: 9 Current Burst: 1 WT: 5
+Ready Queue: 4 0 2 8 7 3 
+Running job: 1 Current Burst: 3 WT: 8 RT: 1
+IO Queue: 6 5 
+IO job: 9 Current Burst: 5 WT: 8
 ==============================================
 Taking Snap at time: 20
 ==============================================
-Ready Queue: 2 8 7 9 3 6 5 
+Ready Queue: 2 8 7 3 9 6 5 
 Running job: 0 Current Burst: 2 WT: 17 RT: 3
-IO Queue: 1 
-IO job: 4 Current Burst: 3 WT: 17
+IO Queue: 4 
+IO job: 1 Current Burst: 2 WT: 17
 ==============================================
 Taking Snap at time: 30
 ==============================================
-Ready Queue: 8 7 9 3 6 5 4 1 0 
+Ready Queue: 8 7 3 9 6 5 1 4 0 
 Running job: 2 Current Burst: 4 WT: 20 RT: 8
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 40
 ==============================================
-Ready Queue: 7 9 3 6 5 4 1 0 2 
+Ready Queue: 7 3 9 6 5 1 4 0 2 
 Running job: 8 Current Burst: 8 WT: 26 RT: 6
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 50
 ==============================================
-Ready Queue: 9 3 6 5 4 1 0 2 8 
+Ready Queue: 3 9 6 5 1 4 0 2 8 
 Running job: 7 Current Burst: 6 WT: 41 RT: 2
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 60
 ==============================================
-Ready Queue: 5 4 1 0 2 8 
+Ready Queue: 5 1 4 0 2 8 
 Running job: 6 Current Burst: 0 WT: 45 RT: 4
 IO Queue: NOTHING!
 IO job: 7 Current Burst: 3 WT: 45
@@ -206,7 +206,7 @@ IO job: 7 Current Burst: 3 WT: 45
 Taking Snap at time: 70
 ==============================================
 Ready Queue: 0 2 8 7 
-Running job: 1 Current Burst: 4 WT: 57 RT: 4
+Running job: 4 Current Burst: 4 WT: 54 RT: 4
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -227,48 +227,48 @@ IO Job: NO RUNNING JOB
 Final Report
 PID         WAIT TIME
 0               62
-1               56
+1               50
 2               65
-3               43
-4               46
+3               51
+4               53
 5               41
 6               44
 7               60
 8               58
-9               45
+9               43
 AVERAGE WAITING TIME: 52
 PID         TURNAROUND TIME
 0               72
-1               64
+1               58
 2               77
-3               45
-4               54
+3               53
+4               61
 5               47
 6               48
 7               76
 8               72
-9               47
+9               45
 AVERAGE TURNAROUND TIME: 60
 **************************************SJF ENDED**************************
 **************************************SJR STARTED**************************
 Taking Snap at time: 10
 ==============================================
-Ready Queue: 6 0 7 2 8 
-Running job: 4 Current Burst: 3 WT: 5 RT: 1
-IO Queue: 3 5 1 
-IO job: 9 Current Burst: 1 WT: 5
+Ready Queue: 6 1 0 7 2 8 
+Running job: 4 Current Burst: 1 WT: 2 RT: 3
+IO Queue: 5 
+IO job: 9 Current Burst: 5 WT: 2
 ==============================================
 Taking Snap at time: 20
 ==============================================
 Ready Queue: 5 0 7 2 8 
-Running job: 6 Current Burst: 1 WT: 10 RT: 3
-IO Queue: 4 
-IO job: 1 Current Burst: 1 WT: 10
+Running job: 1 Current Burst: 1 WT: 15 RT: 3
+IO Queue: 6 
+IO job: 4 Current Burst: 2 WT: 15
 ==============================================
 Taking Snap at time: 30
 ==============================================
 Ready Queue: 1 0 7 2 8 
-Running job: 4 Current Burst: 0 WT: 8 RT: 8
+Running job: 4 Current Burst: 0 WT: 6 RT: 8
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
@@ -317,27 +317,27 @@ IO Job: NO RUNNING JOB
 Final Report
 PID         WAIT TIME
 0               39
-1               12
+1               20
 2               60
-3               1
-4               7
+3               0
+4               5
 5               3
-6               10
+6               5
 7               34
 8               67
-9               0
+9               1
 AVERAGE WAITING TIME: 23
 PID         TURNAROUND TIME
 0               49
-1               20
+1               28
 2               72
-3               3
-4               15
+3               2
+4               13
 5               9
-6               14
+6               9
 7               50
 8               80
-9               2
+9               3
 AVERAGE TURNAROUND TIME: 31
 **************************************SJR ENDED**************************
 **************************************RR STARTED**************************
@@ -399,9 +399,10 @@ PID         WAIT TIME
 4               42
 5               44
 6               30
+7               65
 8               72
 9               26
-AVERAGE WAITING TIME: 44
+AVERAGE WAITING TIME: 46
 PID         TURNAROUND TIME
 0               72
 1               48
@@ -410,59 +411,60 @@ PID         TURNAROUND TIME
 4               51
 5               53
 6               35
+7               78
 8               87
 9               31
-AVERAGE TURNAROUND TIME: 53
+AVERAGE TURNAROUND TIME: 56
 **************************************RR ENDED**************************
 **************************************PRIORITY STARTED**************************
 Taking Snap at time: 10
 ==============================================
-Ready Queue: 9 8 1 5 0 3 2 6 7 
+Ready Queue: 8 9 1 0 5 3 2 6 7 
 Running job: 4 Current Burst: 1 WT: 1 RT: 7
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 20
 ==============================================
-Ready Queue: 1 0 5 3 2 6 7 
-Running job: 8 Current Burst: 4 WT: 6 RT: 10
+Ready Queue: 9 1 0 5 3 2 6 7 
+Running job: 8 Current Burst: 6 WT: 3 RT: 8
 IO Queue: NOTHING!
-IO job: 9 Current Burst: 3 WT: 6
+IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 30
 ==============================================
-Ready Queue: 0 5 3 2 6 7 1 
-Running job: 8 Current Burst: 0 WT: 11 RT: 14
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
+Ready Queue: 5 3 2 6 7 
+Running job: 0 Current Burst: 4 WT: 28 RT: 1
+IO Queue: 1 
+IO job: 9 Current Burst: 7 WT: 28
 ==============================================
 Taking Snap at time: 40
 ==============================================
-Ready Queue: 5 3 2 6 7 
-Running job: 0 Current Burst: 1 WT: 35 RT: 4
-IO Queue: NOTHING!
-IO Job: NO RUNNING JOB
+Ready Queue: 3 2 6 7 
+Running job: 1 Current Burst: 3 WT: 24 RT: 5
+IO Queue: 5 
+IO job: 0 Current Burst: 3 WT: 24
 ==============================================
 Taking Snap at time: 50
 ==============================================
-Ready Queue: 5 6 7 2 
-Running job: 0 Current Burst: 0 WT: 36 RT: 10
+Ready Queue: 3 2 6 7 
+Running job: 5 Current Burst: 3 WT: 32 RT: 3
 IO Queue: NOTHING!
-IO job: 3 Current Burst: 3 WT: 36
+IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 60
 ==============================================
-Ready Queue: 7 2 
-Running job: 6 Current Burst: 1 WT: 50 RT: 3
+Ready Queue: 6 7 2 
+Running job: 3 Current Burst: 0 WT: 50 RT: 2
 IO Queue: NOTHING!
 IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 70
 ==============================================
-Ready Queue: 6 
-Running job: 2 Current Burst: 11 WT: 67 RT: 1
+Ready Queue: 2 6 
+Running job: 7 Current Burst: 3 WT: 58 RT: 5
 IO Queue: NOTHING!
-IO job: 7 Current Burst: 6 WT: 67
+IO Job: NO RUNNING JOB
 ==============================================
 Taking Snap at time: 80
 ==============================================
@@ -480,28 +482,28 @@ IO Job: NO RUNNING JOB
 ==============================================
 Final Report
 PID         WAIT TIME         PRIORITY
-0               35             2
+0               28             2
 1               23             1
 2               75             5
-3               42             4
+3               49             4
 4               0             0
-5               37             2
+5               31             2
 6               69             5
 7               59             5
-8               10             1
-9               7             1
+8               4             1
+9               17             1
 AVERAGE WAITING TIME: 35
 PID         TURNAROUND TIME   PRIORITY
-0               45             2
+0               38             2
 1               31             1
 2               87             5
-3               44             4
+3               51             4
 4               8             0
-5               43             2
+5               37             2
 6               73             5
 7               75             5
-8               24             1
-9               9             1
+8               18             1
+9               19             1
 AVERAGE TURNAROUND TIME: 43
 **************************************PRIORITYENDED**************************
 **************************************MFQ STARTED**************************
@@ -605,7 +607,7 @@ ALGORITHM     AVERAGE TURNAROUND TIME
      FCFS     67
       SJF     60
       SJR     31
-       RR     53
+       RR     56
  Priority     43
       MFQ     49
 The best algorithm for the data set is SJR with a average turnaround time of 31
