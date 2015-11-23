@@ -71,7 +71,7 @@ namespace Scheduler
                     {
                         p.period++;
                     }
-                    currentProcess.activePeriod++;
+                    
                     if (currentProcess.getCPU_burst1() > 0)
                     {
                         currentProcess.decrementCPUBurst1();
@@ -89,7 +89,7 @@ namespace Scheduler
                     {
                         break;
                     }
-
+                    currentProcess.activePeriod++;
 
                     //io processing
                     if (currentIO.getIO_burst() > 0)
@@ -140,6 +140,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
+                    currentProcess.activePeriod--;
                     Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue1.Count > 0) currentProcess = ReadyQueue1.Dequeue();
@@ -171,7 +172,7 @@ namespace Scheduler
                     {
                         p.period++;
                     }
-                    currentProcess.activePeriod++;
+                   
                     if (currentProcess.getCPU_burst1() > 0)
                     {
                         currentProcess.decrementCPUBurst1();
@@ -191,7 +192,7 @@ namespace Scheduler
                         //Final_List.Enqueue (currentProcess);
                         break;
                     }
-
+                    currentProcess.activePeriod++;
 
                     //io processing
                     if (currentIO.getIO_burst() > 0)
@@ -240,6 +241,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
+                    currentProcess.activePeriod--;
                     Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue2.Count > 0) currentProcess = ReadyQueue2.Dequeue();
