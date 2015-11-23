@@ -392,29 +392,29 @@ IO Job: NO RUNNING JOB
 ==============================================
 Final Report
 PID         WAIT TIME
-0               60
-1               40
-2               67
-3               23
-4               43
-5               45
-6               31
-7               66
-8               73
-9               27
-AVERAGE WAITING TIME: 47
+0               59
+1               39
+2               66
+3               22
+4               42
+5               44
+6               30
+7               65
+8               72
+9               26
+AVERAGE WAITING TIME: 46
 PID         TURNAROUND TIME
-0               71
-1               49
-2               80
-3               26
-4               52
-5               52
-6               36
-7               79
-8               88
-9               30
-AVERAGE TURNAROUND TIME: 56 CPU UTILIZATION: 124.359
+0               69
+1               47
+2               78
+3               24
+4               50
+5               50
+6               34
+7               78
+8               86
+9               28
+AVERAGE TURNAROUND TIME: 54 CPU UTILIZATION: 100
 **************************************RR ENDED**************************
 **************************************PRIORITY STARTED**************************
 Taking Snap at time: 10
@@ -607,7 +607,7 @@ ALGORITHM     AVERAGE TURNAROUND TIME
      FCFS     67
       SJF     60
       SJR     31
-       RR     56
+       RR     54
  Priority     43
       MFQ     49
 The best algorithm for the data set is SJR with a average turnaround time of 31
