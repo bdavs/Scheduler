@@ -7,7 +7,7 @@ namespace Scheduler
 	public class SJF  : Scheduler{
 		Queue<Process> Ready_Queue;
 		Queue<Process> IO_Queue;
-		Queue<Process> Final_List;
+		List<Process> Final_List;
 		int time = 0;
 		Process RunningJob;
 		Process IO_Job;
@@ -23,7 +23,7 @@ namespace Scheduler
 			IO_Queue = new Queue<Process>();
 			RunningJob = new Process (-1,0,0,0,0);
 			IO_Job = new Process (-1, 0, 0, 0,0);
-			Final_List = new Queue<Process> ();
+			Final_List = new List<Process> ();
 			//StreamWriter output = new StreamWriter ("../../output.txt");
 			simulate (10, output);
 		}
@@ -58,7 +58,7 @@ namespace Scheduler
 						RunningJob.activePeriod++;
 					} else {
 						if (Ready_Queue.Count != 0) {
-							Final_List.Enqueue (RunningJob);
+							Final_List.Add(RunningJob);
 							RunningJob = Ready_Queue.Dequeue ();
 						}
 					}
@@ -114,7 +114,7 @@ namespace Scheduler
 					this.snapshot (pa);
 				}
 			}
-			Final_List.Enqueue (RunningJob); foreach (Process item in Final_List) item.period--;
+			Final_List.Add (RunningJob); foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
 			pa.WriteLine ("**************************************SJF ENDED**************************");
 		}
@@ -122,6 +122,7 @@ namespace Scheduler
 		public override void finalReport(StreamWriter pa) {
 			int waiting_time = 0;
 			int turnaround_time = 0;
+			Final_List.Sort ((p,q) => p.getPID ().CompareTo (q.getPID ()));
 			pa.WriteLine ("Final Report");
 			pa.WriteLine ("PID         WAIT TIME");
 			foreach (Process item in Final_List) {
