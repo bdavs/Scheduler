@@ -17,6 +17,7 @@ namespace Scheduler
 					//Echo processes to console
 					output.WriteLine ("===================================");
 					output.WriteLine ("Quantum = " + p.getQuantum ());
+                   // Console.Read();
 					for (int loop = 0; loop < p.getNumberOfProcesses (); loop++) {
 						output.WriteLine ("===================================");
 						output.WriteLine ("PID: " + p.getProcess (loop).getPID ());
@@ -35,17 +36,11 @@ namespace Scheduler
 
 					//sim [i++] = new FCFS (new ProcessList(fileName),output); 
 					//sim [i++] = new SJF (new ProcessList(fileName),output);
-				//	sim [i++] = new SJR (new ProcessList(fileName),output);
+					//sim [i++] = new SJR (new ProcessList(fileName),output);
 					//sim [i++] = new RR (new ProcessList(fileName),output); 
 
 					//sim[i++] = new Priority(new ProcessList(fileName),output);
-					//sim [i++] = new MFQ (new ProcessList(fileName)); 
-
-
-
-					//sim [i++] = new Priority (new ProcessList(fileName));
-
-					//sim [i++] = new SJR (new ProcessList(fileName));
+					sim [i++] = new MFQ (new ProcessList(fileName), output); 
 
 					output.Close ();
 				}

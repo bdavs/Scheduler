@@ -17,25 +17,25 @@ namespace Scheduler
 		public int time;
 		Queue<Process> Final_List;
 
-		public MFQ(ProcessList processList)
+		public MFQ(ProcessList processList, StreamWriter output)
 		{
 			RRprocessList = processList.clone ();
 			Final_List = new Queue<Process> ();
-			simulate(10,new StreamWriter("../../output.txt"));
+			simulate(10,output);
 		}
 
 
         public override void simulate(int snapshot, StreamWriter pa)
         {
             // TODO Auto-generated method stub
-            Console.WriteLine("**************************************RR STARTED**************************");
+            pa.WriteLine("**************************************MFQ STARTED**************************");
             //quantum	= 1;//RRprocessList.getQuantum();
 
             //add all processes to queue
             foreach (Process process in RRprocessList.processes)
             {
                 ReadyQueue1.Enqueue(process);
-                //Console.WriteLine (process.getCPU_burst1 ());
+                //pa.WriteLine (process.getCPU_burst1 ());
             }
 
             //initialize currents
@@ -45,6 +45,7 @@ namespace Scheduler
             currentIO = new Process(-1, -1, -1, -1, -1);
 
             //main RR while loop
+          
             while (ReadyQueue1.Count > 0)
             {
 
@@ -53,7 +54,7 @@ namespace Scheduler
                 {
                     ReadyQueue2.Enqueue(currentProcess);
                     currentProcess = ReadyQueue2.Dequeue();
-                    break;
+                    continue;
                 }
 
 
@@ -62,7 +63,7 @@ namespace Scheduler
                 {
 
                     //cpu processing
-                    //Console.WriteLine (currentProcess.getPID ());
+                    //pa.WriteLine (currentProcess.getPID ());
 
                     foreach (Process p in ReadyQueue2)
                     {
@@ -76,7 +77,6 @@ namespace Scheduler
                     else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() > 0)
                     {
                         IOQueue.Enqueue(currentProcess);
-                        //Console.WriteLine ("into IO:"+ currentProcess.getPID ());
                         break;
                     }
                     else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() == 0 && currentProcess.getCPU_burst2() > 0)
@@ -85,7 +85,6 @@ namespace Scheduler
                     }
                     else
                     {
-                        //Final_List.Enqueue (currentProcess);
                         break;
                     }
 
@@ -120,8 +119,11 @@ namespace Scheduler
                     //POKEMON SNAP
                     if (time % snapshot == 0)
                     {
-                        System.Console.WriteLine("Taking Snap at time: " + time);
+                        pa.WriteLine("Taking Snap at time: " + time);
                         ReadyQueue = ReadyQueue1;
+                        this.snapshot(pa);
+                        pa.WriteLine("queue2");
+                        ReadyQueue = ReadyQueue2;
                         this.snapshot(pa);
                     }
                 }
@@ -133,7 +135,6 @@ namespace Scheduler
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() > 0 && !IOQueue.Contains(currentProcess))
                 {
                     IOQueue.Enqueue(currentProcess);
-                    //Console.WriteLine ("into IO2:"+ currentProcess.getPID ());
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
@@ -142,13 +143,13 @@ namespace Scheduler
                 if (ReadyQueue1.Count > 0) currentProcess = ReadyQueue1.Dequeue();
 
             }
-
+           
             /////////////////////////////////////////////////////////////////////////////////
             ////////start of queue 2/////////////////////////////////////////////////////////
             /////////////////////////////////////////////////////////////////////////////////
+            if (ReadyQueue2.Count > 0) currentProcess = ReadyQueue2.Dequeue();
             while (ReadyQueue2.Count > 0)
             {
-
 
                 if (currentProcess.getPID() == -1)
                 {
@@ -157,13 +158,12 @@ namespace Scheduler
                     break;
                 }
 
-
                 //quantum for loop
                 for (int i = 0; i < (quantum = 8); i++)
                 {
 
                     //cpu processing
-                    //Console.WriteLine (currentProcess.getPID ());
+                    //pa.WriteLine (currentProcess.getPID ());
 
                     foreach (Process p in ReadyQueue2)
                     {
@@ -177,7 +177,7 @@ namespace Scheduler
                     else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() > 0)
                     {
                         IOQueue.Enqueue(currentProcess);
-                        //Console.WriteLine ("into IO:"+ currentProcess.getPID ());
+                        //pa.WriteLine ("into IO:"+ currentProcess.getPID ());
                         break;
                     }
                     else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() == 0 && currentProcess.getCPU_burst2() > 0)
@@ -221,7 +221,7 @@ namespace Scheduler
                     //POKEMON SNAP
                     if (time % snapshot == 0)
                     {
-                        System.Console.WriteLine("Taking Snap at time: " + time);
+                        pa.WriteLine("Taking Snap at time: " + time);
                         ReadyQueue = ReadyQueue1;
                         this.snapshot(pa);
                     }
@@ -234,7 +234,7 @@ namespace Scheduler
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getIO_burst() > 0 && !IOQueue.Contains(currentProcess))
                 {
                     IOQueue.Enqueue(currentProcess);
-                    //Console.WriteLine ("into IO2:"+ currentProcess.getPID ());
+                    //pa.WriteLine ("into IO2:"+ currentProcess.getPID ());
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
@@ -351,30 +351,29 @@ namespace Scheduler
                     ReadyQueue = ReadyQueue3;
                     this.snapshot(pa);
                 }
-
-                foreach (Process item in Final_List) item.period--;
-                finalReport(pa);
-                Console.WriteLine("**************************************RR ENDED**************************");
             }
+            foreach (Process item in Final_List) item.period--;
+            finalReport(pa);
+            pa.WriteLine("**************************************MFQ ENDED**************************");
         }
 
 
-		public override void finalReport(StreamWriter pw) {
+		public override void finalReport(StreamWriter pa) {
 			int waiting_time = 0;
 			int turnaround_time = 0;
-			Console.WriteLine ("Final Report");
-			Console.WriteLine ("PID         WAIT TIME");
+			pa.WriteLine ("Final Report");
+			pa.WriteLine ("PID         WAIT TIME");
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
-				Console.WriteLine (item.getPID () + "               " + item.period);
+				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
-			Console.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
-			Console.WriteLine ("PID         TURNAROUND TIME");
+			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
+			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
 				turnaround_time += item.period+item.activePeriod;
-				Console.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
+				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
-			Console.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
 		}
 
         void snapshot(StreamWriter pa)
