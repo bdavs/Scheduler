@@ -34,7 +34,7 @@ namespace Scheduler
 				{
 					int i = 0;
 
-					//sim [i++] = new FCFS (new ProcessList(fileName),output); 
+					sim [i++] = new FCFS (new ProcessList(fileName),output); 
 					//sim [i++] = new SJF (new ProcessList(fileName),output);
 					//sim [i++] = new SJR (new ProcessList(fileName),output);
 					//sim [i++] = new RR (new ProcessList(fileName),output); 
