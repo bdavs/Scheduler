@@ -1,12 +1,15 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Scheduler/Simulator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Scheduler/MFQ.cs">
     <Files>
-      <File FileName="Scheduler/FCFS.cs" Line="1" Column="1" />
-      <File FileName="Scheduler/ProcessList.cs" Line="3" Column="3" />
-      <File FileName="Scheduler/Program.cs" Line="1" Column="1" />
-      <File FileName="Scheduler/Simulator.cs" Line="6" Column="6" />
-      <File FileName="Scheduler/Process.cs" Line="1" Column="1" />
+      <File FileName="Scheduler/Simulator.cs" Line="48" Column="48" />
+      <File FileName="Scheduler/RR.cs" Line="24" Column="24" />
+      <File FileName="Scheduler/MFQ.cs" Line="15" Column="15" />
+      <File FileName="Scheduler/FCFS.cs" Line="16" Column="16" />
+      <File FileName="Scheduler/Priority.cs" Line="16" Column="16" />
+      <File FileName="Scheduler/Scheduler.cs" Line="51" Column="51" />
+      <File FileName="Scheduler/SJF.cs" Line="16" Column="16" />
+      <File FileName="Scheduler/SJR.cs" Line="16" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
