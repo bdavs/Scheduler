@@ -13,6 +13,7 @@ namespace Scheduler
 		Process RunningJob;
 		Process IO_Job;
 		Process Temp_Job;
+		float cputicks;
 		public Priority(ProcessList processList, StreamWriter output)
 		{
 			PreSortedList = processList.processes.ToList ();
@@ -159,16 +160,19 @@ namespace Scheduler
 			pa.WriteLine ("PID         WAIT TIME         PRIORITY");
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
+				cputicks += item.activePeriod+1;
 				pa.WriteLine (item.getPID () + "               " + item.period+"             "+item.getPriority ());
 			}
+			cputicks--;	
 			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
 			pa.WriteLine ("PID         TURNAROUND TIME   PRIORITY");
 			foreach (Process item in Final_List) {
 				turnaround_time += item.period+item.activePeriod;
 				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period)+"             "+item.getPriority ());
 			}
+
 			Average_TurnAround = turnaround_time / Final_List.Count;
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround)+" CPU UTILIZATION: "+((cputicks/time)*100));
 		}
 
 		void snapshot(StreamWriter pa){

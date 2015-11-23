@@ -9,6 +9,7 @@ namespace Scheduler
 		Queue<Process> IO_Queue;
 		Queue<Process> Final_List;
 		int time = 0;
+		float cputicks;
 		Process RunningJob;
 		Process IO_Job;
 		public FCFS(ProcessList processList, StreamWriter output)
@@ -123,8 +124,10 @@ namespace Scheduler
 			pa.WriteLine ("PID         WAIT TIME");
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
+				cputicks += item.activePeriod+1;
 				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
+			cputicks--;
 			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
 			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
@@ -132,7 +135,7 @@ namespace Scheduler
 				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
 			Average_TurnAround = turnaround_time / Final_List.Count;
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround)+" CPU UTILIZATION: "+((cputicks/time)*100));
 		}
 
 		void snapshot(StreamWriter pa){

@@ -15,6 +15,7 @@ namespace Scheduler
 		public Process currentProcess;
 		public Process currentIO;
 		public int time;
+		float cputicks; 
 		List<Process> Final_List;
 
 
@@ -369,8 +370,10 @@ namespace Scheduler
             Final_List.Sort((p, q) => (p.getPID()).CompareTo(q.getPID()));
             foreach (Process item in Final_List) {
 				waiting_time += item.period;
+				cputicks += item.activePeriod+1;
 				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
+			cputicks--;
 			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
 			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
@@ -379,7 +382,7 @@ namespace Scheduler
 
 			}
 			Average_TurnAround = turnaround_time / Final_List.Count;
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround)+" CPU UTILIZATION: "+((cputicks/time)*100));
 		}
 
         void snapshot(StreamWriter pa)
