@@ -11,6 +11,7 @@ namespace Scheduler
 		int time = 0;
 		Process RunningJob;
 		Process IO_Job;
+		float cputicks;
 		List<Process> PreSortedList;
 		public SJF(ProcessList processList, StreamWriter output)
 		{
@@ -127,8 +128,10 @@ namespace Scheduler
 			pa.WriteLine ("PID         WAIT TIME");
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
+				cputicks += item.activePeriod+1;
 				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
+			cputicks--;
 			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
 			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
@@ -136,7 +139,7 @@ namespace Scheduler
 				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
 			Average_TurnAround = turnaround_time / Final_List.Count;
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround)+" CPU UTILIZATION: "+((cputicks/time)*100));
 		}
 
 		void snapshot(StreamWriter pa){

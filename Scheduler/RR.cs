@@ -12,6 +12,7 @@ namespace Scheduler
 		public Process currentProcess;
 		public Process currentIO;
 		public int time;
+		float cputicks;
 		List<Process> Final_List;
 
 		public RR(ProcessList processList, StreamWriter pa)
@@ -51,7 +52,7 @@ namespace Scheduler
 					foreach (Process p in ReadyQueue) {
 						p.period++;
 					}
-					currentProcess.activePeriod++;
+
 					if (currentProcess.getCPU_burst1 () > 0) {
 						currentProcess.decrementCPUBurst1 ();
 					} else if (currentProcess.getCPU_burst1 () == 0 && currentProcess.getIO_burst () > 0) {
@@ -64,7 +65,7 @@ namespace Scheduler
 						//Final_List.Enqueue (currentProcess);
 						break;
 					}
-
+					currentProcess.activePeriod++;
 
 					//io processing
 					if (currentIO.getIO_burst () > 0) {
@@ -102,7 +103,7 @@ namespace Scheduler
 				if (ReadyQueue.Count>0) currentProcess = ReadyQueue.Dequeue ();	
 
 			}
-            Final_List.Add(currentProcess); foreach (Process item in Final_List) item.period--;
+            Final_List.Add(currentProcess); //foreach (Process item in Final_List) item.period--;
 			finalReport (pa);
 			pa.WriteLine ("**************************************RR ENDED**************************");
 		}
@@ -116,8 +117,10 @@ namespace Scheduler
             Final_List.Sort((p, q) => (p.getPID()).CompareTo(q.getPID()));
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
+				cputicks += item.activePeriod+1;
 				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
+			cputicks--;
 			pa.WriteLine ("AVERAGE WAITING TIME: "+(waiting_time/Final_List.Count));
 			pa.WriteLine ("PID         TURNAROUND TIME");
 			foreach (Process item in Final_List) {
@@ -125,7 +128,7 @@ namespace Scheduler
 				pa.WriteLine (item.getPID () + "               " + (item.activePeriod+item.period));
 			}
 			Average_TurnAround = turnaround_time / Final_List.Count;
-			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(turnaround_time/Final_List.Count));
+			pa.WriteLine ("AVERAGE TURNAROUND TIME: "+(Average_TurnAround)+" CPU UTILIZATION: "+((cputicks/time)*100));
 		}
 
 		void snapshot(StreamWriter pa){
