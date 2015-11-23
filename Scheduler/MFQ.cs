@@ -356,9 +356,10 @@ namespace Scheduler
                     ReadyQueue = ReadyQueue3;
                     this.snapshot(pa);
                 }
+
             }
             Final_List.Add(currentProcess);
-            foreach (Process item in Final_List) item.period--;
+            foreach (Process item in Final_List) { item.period--; item.activePeriod--; }
             finalReport(pa);
             pa.WriteLine("**************************************MFQ ENDED**************************");
         }
