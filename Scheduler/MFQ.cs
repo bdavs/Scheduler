@@ -63,7 +63,7 @@ namespace Scheduler
                 //quantum for loop
                 for (int i = 0; i < (quantum = 3); i++)
                 {
-
+                    time++;
                     //cpu processing
                     //pa.WriteLine (currentProcess.getPID ());
 
@@ -116,7 +116,7 @@ namespace Scheduler
                         }
                     }
                     //increment time
-                    time++;
+                   
 
                     //POKEMON SNAP
                     if (time % snapshot == 0)
@@ -153,7 +153,7 @@ namespace Scheduler
             if (ReadyQueue2.Count > 0) currentProcess = ReadyQueue2.Dequeue();
             while (ReadyQueue2.Count > 0)
             {
-
+                time++;
                 if (currentProcess.getPID() == -1)
                 {
                     ReadyQueue3.Enqueue(currentProcess);
@@ -219,7 +219,7 @@ namespace Scheduler
                         }
                     }
                     //increment time
-                    time++;
+                    
 
                     //POKEMON SNAP
                     if (time % snapshot == 0)
@@ -252,6 +252,7 @@ namespace Scheduler
             /////////////////////////////////////////////////////////////////////////////////
             while ((ReadyQueue3.Count != 0 || IOQueue.Count != 0) || (currentProcess.getCPU_burst1() > 0 || currentProcess.getCPU_burst2() > 0) || (currentIO.getIO_burst() > 0))
             {
+                time++;
                 //Get the running job 
                 if (currentProcess.getPID() == -1)
                 {
@@ -344,7 +345,7 @@ namespace Scheduler
                     //item.period++;
                 }
                 //End waiting time count
-                time++;
+                
 
 
 
