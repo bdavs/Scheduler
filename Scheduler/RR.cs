@@ -12,12 +12,12 @@ namespace Scheduler
 		public Process currentProcess;
 		public Process currentIO;
 		public int time;
-		Queue<Process> Final_List;
+		List<Process> Final_List;
 
 		public RR(ProcessList processList, StreamWriter pa)
 		{
 			RRprocessList = processList.clone ();
-			Final_List = new Queue<Process> ();
+			Final_List = new List<Process> ();
 			simulate(10,pa);
 		}
 
@@ -97,7 +97,7 @@ namespace Scheduler
 					IOQueue.Enqueue (currentProcess);
 					//pa.WriteLine ("into IO2:"+ currentProcess.getPID ());
 				} else if(currentProcess.getCPU_burst1 () == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0){
-					Final_List.Enqueue (currentProcess);
+					Final_List.Add (currentProcess);
 				}
 				if (ReadyQueue.Count>0) currentProcess = ReadyQueue.Dequeue ();	
 
@@ -113,6 +113,7 @@ namespace Scheduler
 			int turnaround_time = 0;
 			pa.WriteLine ("Final Report");
 			pa.WriteLine ("PID         WAIT TIME");
+            Final_List.Sort((p, q) => (p.getPID()).CompareTo(q.getPID()));
 			foreach (Process item in Final_List) {
 				waiting_time += item.period;
 				pa.WriteLine (item.getPID () + "               " + item.period);

@@ -15,13 +15,13 @@ namespace Scheduler
 		public Process currentProcess;
 		public Process currentIO;
 		public int time;
-		Queue<Process> Final_List;
+		List<Process> Final_List;
 
 
 		public MFQ(ProcessList processList, StreamWriter output)
 		{
 			RRprocessList = processList.clone ();
-			Final_List = new Queue<Process> ();
+			Final_List = new List<Process> ();
 			simulate(10,output);
 		}
 
@@ -139,7 +139,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
-                    Final_List.Enqueue(currentProcess);
+                    Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue1.Count > 0) currentProcess = ReadyQueue1.Dequeue();
 
@@ -239,7 +239,7 @@ namespace Scheduler
                 }
                 else if (currentProcess.getCPU_burst1() == 0 && currentProcess.getCPU_burst2() == 0 && currentProcess.getIO_burst() == 0)
                 {
-                    Final_List.Enqueue(currentProcess);
+                    Final_List.Add(currentProcess);
                 }
                 if (ReadyQueue2.Count > 0) currentProcess = ReadyQueue2.Dequeue();
 
@@ -280,7 +280,7 @@ namespace Scheduler
                     {
                         if (ReadyQueue3.Count != 0)
                         {
-                            Final_List.Enqueue(currentProcess);
+                            Final_List.Add(currentProcess);
                             currentProcess = ReadyQueue3.Dequeue();
                         }
                     }
@@ -353,6 +353,7 @@ namespace Scheduler
                     this.snapshot(pa);
                 }
             }
+            Final_List.Add(currentProcess);
             foreach (Process item in Final_List) item.period--;
             finalReport(pa);
             pa.WriteLine("**************************************MFQ ENDED**************************");
@@ -365,7 +366,8 @@ namespace Scheduler
 			int turnaround_time = 0;
 			pa.WriteLine ("Final Report");
 			pa.WriteLine ("PID         WAIT TIME");
-			foreach (Process item in Final_List) {
+            Final_List.Sort((p, q) => (p.getPID()).CompareTo(q.getPID()));
+            foreach (Process item in Final_List) {
 				waiting_time += item.period;
 				pa.WriteLine (item.getPID () + "               " + item.period);
 			}
